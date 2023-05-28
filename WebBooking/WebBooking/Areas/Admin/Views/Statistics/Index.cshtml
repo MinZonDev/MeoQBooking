@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Thống Kê";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @*<button type="button" id="totalBookingsBtn">Total Bookings</button>
+        <button type="button" id="totalRevenueBtn">Total Revenue</button>*@
+
+
+
+    <!-- Các nút khác -->
+</p>
+
+
+<div class="statistics">
+    <div class="row">
+        <div class="col-xl-6 pr-xl-2">
+            <div class="row">
+                <div class="col-sm-6 pl-sm-2 statistics-grid">
+                    <div class="card card_border border-primary-top p-4">
+                        <i style="color: #6495ED" class="lnr lnr-cart"> </i>
+                        <h3 class="text-secondary number">@ViewBag.TotalBookings</h3>
+                        <p class="stat-text">Tổng Số Đơn Đặt phòng</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 pl-sm-2 statistics-grid">
+                    <div class="card card_border border-primary-top p-4">
+                        <i style="color:#ff4f81" class="lnr lnr-tag"> </i>
+                        <h3 class="text-danger number">@String.Format("{0:0,0}", ViewBag.TotalRevenue) VNĐ</h3>
+                        <p class="stat-text">Tổng Doanh Thu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<canvas id="revenueChart" width="400" height="200"></canvas>
+
+
+
+@section scripts {
+    @*<script src="~/Scripts/chart.min.js"></script>*@
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <script>
+    // Lấy đối tượng canvas
+    var revenueChartCanvas = document.getElementById('revenueChart');
+
+    // Tạo biểu đồ
+    var revenueChart = new Chart(revenueChartCanvas, {
+        type: 'bar', // Loại biểu đồ, ví dụ: bar, line, pie, ...
+        data: {
+            labels: ['Total Revenue'], // Nhãn trục x
+            datasets: [{
+                label: 'Statistics', // Nhãn dữ liệu
+                data: [@ViewBag.TotalRevenue], // Dữ liệu
+                backgroundColor: ['rgba(54, 162, 235, 0.5)', 'rgba(75, 192, 192, 0.5)'], // Màu nền các cột
+                borderColor: ['rgba(54, 162, 235, 1)', 'rgba(75, 192, 192, 1)'], // Màu viền các cột
+                borderWidth: 1 // Độ dày viền các cột
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true // Đặt giá trị bắt đầu trục y từ 0
+                }
+            }
+        }
+    });
+    </script>
+
+
+}

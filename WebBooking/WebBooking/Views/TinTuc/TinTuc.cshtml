@@ -1,0 +1,139 @@
+﻿@model PagedList.IPagedList<WebBooking.Models.DB.New>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "TinTuc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var categories = ViewBag.Categories as List<WebBooking.Models.DB.CategoryNew>;
+}
+
+<div id="gdlr-header-substitute">
+</div>
+<div class="gdlr-page-title-wrapper">
+    <div class="gdlr-page-title-overlay"></div>
+    <div class="gdlr-page-title-container container">
+        <h1 class="gdlr-page-title">Tin Tức</h1>
+        <span class="gdlr-page-caption">Trang Tin Tức</span>
+    </div>
+</div>
+<!-- is search -->
+<div class="content-wrapper">
+    <div class="gdlr-content">
+        <!-- Above Sidebar Section-->
+        <!-- Sidebar With Content Section-->
+        <div class="with-sidebar-wrapper">
+            <div class="with-sidebar-container container">
+
+                <div class="gdlr-sidebar gdlr-left-sidebar four columns">
+                    <div class="gdlr-item-start-content sidebar-left-item">
+                        <div id="search-3" class="widget widget_search gdlr-item gdlr-widget">
+                            <div class="gdl-search-form">
+                                <form action="@Url.Action("TinTuc", "TinTuc")" method="get">
+                                    <input type="text" name="searchTerm" placeholder="Nhập từ khóa tìm kiếm" />
+                                    <input type="submit" value="">
+                                    <div class="clear"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="gdlr-recent-portfolio-widget-2" class="widget widget_gdlr-recent-portfolio-widget gdlr-item gdlr-widget">
+                            <h3 style="font-size:30px" class="gdlr-widget-title">Danh Mục</h3>
+                            <div class="clear"></div>
+                            <div class="gdlr-recent-port-widget">
+                                @foreach (var item in categories)
+                                {
+                                    <div class="recent-post-widget">
+                                        <div class="recent-post-widget-content">
+                                            <div style="font-size:20px" class="recent-post-widget-title"><a style="color: antiquewhite" href="#">@item.CategoryName</a></div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                }
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="with-sidebar-left eight columns">
+                    <div class="with-sidebar-content twelve columns">
+                        <section id="content-section-1">
+                            <div class="section-container container">
+                                <div class="blog-item-wrapper">
+                                    <div class="blog-item-holder">
+                                        <div class="gdlr-item gdlr-blog-full">
+                                            @foreach (var item in Model)
+                                            {
+                                                <div class="gdlr-ux gdlr-blog-full-ux">
+                                                    <article id="post-859" class="post-859 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row">
+                                                        <div class="gdlr-standard-style">
+                                                            <div class="gdlr-blog-thumbnail">
+                                                                <a href="@Url.Action("ChiTietTinTuc", "TinTuc",new {@id = item.newid })"> <img src="@item.image" alt="" width="750" height="330"></a>
+                                                            </div>
+                                                            <div class="blog-date-wrapper gdlr-title-font">
+                                                                <span class="blog-date-day">@item.createdtime.Value.ToString("dd")</span>
+                                                                <span class="blog-date-month">@item.createdtime.Value.ToString("MM")</span>
+                                                            </div>
+
+                                                            <div class="blog-content-wrapper">
+                                                                <header class="post-header">
+                                                                    @*<div class="gdlr-blog-info gdlr-info">
+                                                                            <div class="blog-info blog-author"><i class="fa fa-pencil"></i><a href="#" title="Posts by John Doe" rel="author">John Doe</a></div>
+                                                                            <div class="blog-info blog-comment"><i class="fa fa-comment-o"></i><a href="#">0</a></div>
+                                                                            <div class="blog-info blog-category"><i class="fa fa-folder-open-o"></i><a href="#" rel="tag">Blog</a><span class="sep">,</span> <a href="#" rel="tag">Fit Row</a></div>
+                                                                            <div class="clear"></div>
+                                                                        </div>*@
+
+                                                                    <h3 class="gdlr-blog-title"><a href="@Url.Action("ChiTietTinTuc", "TinTuc",new {@id = item.newid })">@item.title</a></h3>
+
+                                                                    <div class="clear"></div>
+                                                                </header>
+                                                                <!-- entry-header -->
+                                                                <div style="color:#cab193" class="gdlr-blog-content">
+                                                                    @item.description
+                                                                    <div class="clear"></div><a href="@Url.Action("ChiTietTinTuc", "TinTuc",new {@id = item.newid })" style="color:antiquewhite; font-size:20px" class="excerpt-read-more">Xem Thêm...<i class="fa fa-long-arrow-right icon-long-arrow-right"></i></a>
+                                                                </div>
+                                                            </div>
+                                                            <!-- blog content wrapper -->
+                                                        </div>
+                                                    </article>
+                                                    <!-- #post -->
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="gdlr-pagination">
+                                        <style>
+                                            .pagination > .active > a,
+                                            .pagination > .active > span,
+                                            .pagination > .active > a:hover,
+                                            .pagination > .active > span:hover,
+                                            .pagination > .active > a:focus,
+                                            .pagination > .active > span:focus {
+                                                z-index: 2;
+                                                color: #ffffff;
+                                                cursor: default;
+                                                background-color: #b89f80;
+                                                border-color: #b89f80;
+                                            }
+                                        </style>
+                                        <span aria-current='page' class='page-numbers current'>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount</span>
+                                        <div style="text-align: right; margin-left: 695px; color: aliceblue; border-color: #b89f80 " class="pagination-container">
+                                            
+                                            @Html.PagedListPager(Model, page => Url.Action("TinTuc", new { page }), new PagedListRenderOptions { Display = PagedListDisplayMode.IfNeeded })
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-- Below Sidebar Section-->
+    </div>
+    <!-- gdlr-content -->
+    <div class="clear"></div>
+</div>
+<!-- content wrapper -->

@@ -1,0 +1,140 @@
+﻿<div class="side-nav">
+    <div class="side-nav-inner">
+        <ul class="side-nav-menu scrollable">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="dropdown-toggle" href="@Url.Action("Index","Statistics",new { Areas ="Admin"})">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-dashboard"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                        <span class="arrow">
+                            <i class="arrow-icon"></i>
+                        </span>
+                    </a>
+
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a href="/login.html?returnUrl=/Admin/Home" class="dropdown-toggle" @*asp-area="Admin" asp-controller="Home" asp-action="Index"*@>
+                        <span class="icon-holder">
+                            <i class="anticon anticon-dashboard"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                        <span class="arrow">
+                            <i class="arrow-icon"></i>
+                        </span>
+                    </a>
+
+                </li>
+            }
+
+            @* <li class="nav-item">
+            <a class="dropdown-toggle" asp-action="Index" asp-controller="OrdersAd" asp-area="Admin">
+                <span class="icon-holder">
+                    <i class="anticon anticon-file"></i>
+                </span>
+                <span class="title">Quản lý đơn hàng</span>
+            </a>
+        </li>*@
+            <li class="nav-item">
+                <a class="dropdown-toggle" href="@Url.Action("Index","Booking",new { Areas ="Admin"})">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-file"></i>
+                    </span>
+                    <span class="title">Quản lý đơn đặt phòng</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("Index","Room",new { Areas ="Admin"})">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-file"></i>
+                    </span>
+                    <span class="title">Quản lý phòng</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="@Url.Action("Index","Category",new { Areas ="Admin"})">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-file"></i>
+                    </span>
+                    <span class="title">Quản lý loại phòng</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-form"></i>
+                    </span>
+                    <span class="title">Doanh số</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="@Url.Action("Index","Statistics",new { Areas ="Admin"})">Thống Kê</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-table"></i>
+                    </span>
+                    <span class="title">Quản lý hệ thống</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a href="@Url.Action("Index","Account",new { Areas ="Admin"})">Quản lý tài khoản</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="/login.html?returnUrl=/Admin/AccountsAdmin" @* asp-area="Admin" asp-controller="AccountsAdmin" asp-action="Index"*@>Quản lý tài khoản</a>
+                        </li>
+                    }
+
+                    @*<li>
+                        <a asp-area="Admin" asp-controller="CategoriesAd" asp-action="Index">Quản lý danh mục</a>
+                    </li>*@
+                    <li>
+                        <a href="@Url.Action("AddRoleToUser","Account",new { Areas ="Admin"})">Quản lý quyền truy cập</a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("Index","New",new { Areas ="Admin"})">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-file"></i>
+                    </span>
+                    <span class="title">Quản lý tin tức</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="@Url.Action("Index","CategoryNew",new { Areas ="Admin"})">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-file"></i>
+                    </span>
+                    <span class="title">Quản lý loại tin tức</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>

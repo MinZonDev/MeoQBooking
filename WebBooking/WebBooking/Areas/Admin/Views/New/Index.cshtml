@@ -1,0 +1,106 @@
+﻿@model PagedList.IPagedList<WebBooking.Models.DB.New>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "DANH SÁCH TIN TỨC";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<style>
+    img {
+        width: 100px;
+    }
+</style>
+
+<div class="row m-b-30">
+    <div class="col-md-8">
+        <div class="col-md-6">
+            <form action="@Url.Action("Index", "New")" method="get">
+                <div class="input-affix m-v-10">
+                    <i class="prefix-icon anticon anticon-search opacity-04"></i>
+                    <input id="keyword" name="searchTerm" type="text" class="form-control" placeholder="Nhập từ khóa cần tìm kiếm">
+                    <input type="submit" value="Tìm kiếm">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-4 text-right">
+        <a class="btn btn-primary" @Html.ActionLink("Thêm tin tức", "Create") @*<i class="anticon anticon-plus-circle m-r-5"></i><span>Thêm sản phẩm</span>*@</a>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Danh mục:
+        </th>
+        <th>
+            Tựa đề:
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>*@
+        <th>
+            Ngày tạo:
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.content)
+            </th>*@
+        <th>
+            Hình ảnh:
+        </th>
+        <th>
+            Hành động
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryNew.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.createdtime)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.content)
+                </td>*@
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.image)" />
+            </td>
+            <td>
+                <a class="btn btn-primary btn-tone m-r-5" @Html.ActionLink("Chi tiết", "Details", new { id = item.newid })> </a>
+                <a class="btn btn-secondary btn-tone m-r-5" @Html.ActionLink("Sửa", "Edit", new { id = item.newid })> </a>
+                <a class="btn btn-success btn-tone m-r-5" @Html.ActionLink("Xóa", "Delete", new { id = item.newid })> </a>
+            </td>
+        </tr>
+    }
+</table>
+<div class="gdlr-pagination">
+    <style>
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 2;
+            color: #ffffff;
+            cursor: default;
+            background-color: #b89f80;
+            border-color: #b89f80;
+        }
+    </style>
+    <span aria-current='page' class='page-numbers current'>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount</span>
+    <div style="text-align: right; margin-left: 695px; color: aliceblue; border-color: #b89f80 " class="pagination-container">
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions { Display = PagedListDisplayMode.IfNeeded })
+    </div>
+
+</div>

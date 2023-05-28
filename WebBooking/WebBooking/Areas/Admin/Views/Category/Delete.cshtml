@@ -1,0 +1,16 @@
+﻿@model WebBooking.Models.DB.Category
+
+@{
+    ViewBag.Title = "XÓA LOẠI PHÒNG";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div>
+    <h2>Xác nhận xóa loại phòng</h2>
+    <p>Bạn có chắc muốn xóa loại phòng: <strong>@Model.categoryname</strong>?</p>
+    @using (Html.BeginForm("DeleteConfirmed", "Category", new { id = Model.categoryid }, FormMethod.Post))
+    {
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default" })
+    }
+</div>

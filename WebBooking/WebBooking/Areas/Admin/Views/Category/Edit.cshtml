@@ -1,0 +1,70 @@
+﻿@model WebBooking.Models.DB.Category
+
+@{
+    ViewBag.Title = "CẬP NHẬT LOẠI PHÒNG";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Loại phòng: @Model.categoryname</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.categoryid)
+
+        <div class="form-group">
+            <strong>Tên loại phòng</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.categoryname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.categoryname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Mô tả:</strong>
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.categorydes, new { htmlAttributes = new { @class = "form-control" } })*@
+                <textarea class="form-control" name="categorydes" id="inputdes">@Model.categorydes</textarea>
+                @Html.ValidationMessageFor(model => model.categorydes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Hình ảnh:</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.image, new { htmlAttributes = new { @class = "form-control" } })
+                <a href="#" class="btn btn-success btn-sm" onclick="BrowseServer()">Chọn hình ảnh</a>
+                @Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Sửa" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay về", "Index")
+</div>
+@section ckfinder{
+    <script>
+        CKEDITOR.replace('inputdes')
+        function BrowseServer() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = SetFileField;
+            finder.popup();
+        }
+        function SetFileField(fileUrl) {
+            document.getElementById('image').value = fileUrl;
+        }
+
+    </script>
+}

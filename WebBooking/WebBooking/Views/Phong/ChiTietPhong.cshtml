@@ -1,0 +1,102 @@
+﻿@model WebBooking.Models.DB.Room
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="gdlr-header-substitute">
+</div>
+<div class="gdlr-page-title-wrapper">
+    <div class="gdlr-page-title-overlay">
+    </div>
+    <div class="gdlr-page-title-container container">
+        <h3 class="gdlr-page-title">@Model.roomname</h3>
+    </div>
+</div>
+<!-- is search -->
+<div class="content-wrapper">
+    <div class="gdlr-content">
+        <div class="with-sidebar-wrapper">
+            <div class="with-sidebar-container container gdlr-class-no-sidebar">
+                <div class="with-sidebar-left twelve columns">
+                    <div class="with-sidebar-content twelve columns">
+                        <div class="gdlr-item gdlr-item-start-content">
+                            <div id="room-3595" class="post-3595 room type-room status-publish has-post-thumbnail hentry room_category-room room_tag-luxury room_tag-room room_tag-superior">
+                                <div class="gdlr-room-main-content">
+                                    <div class="gdlr-room-thumbnail gdlr-single-room-thumbnail">
+                                        <div class="flexslider" data-pausetime="7000" data-slidespeed="600" data-effect="fade">
+                                            <ul class="slides">
+                                                <li><img src="@Model.image" alt="" width="750" height="330"></li>
+                                                <li><a href="@Model.image1" data-fancybox-group="gdlr-gal-1" data-rel="fancybox"><img src="@Model.image1" alt="" width="750" height="330"></a></li>
+                                                <li><a href="@Model.image2" data-fancybox-group="gdlr-gal-1" data-rel="fancybox"><img src="@Model.image2" alt="" width="750" height="330"></a></li>
+                                                <li><a href="@Model.image3" data-fancybox-group="gdlr-gal-1" data-rel="fancybox"><img src="@Model.image3" alt="" width="750" height="330"></a></li>
+                                                <li><a href="@Model.image4" data-fancybox-group="gdlr-gal-1" data-rel="fancybox"><img src="@Model.image4" alt="" width="750" height="330"></a></li>
+                                            </ul>
+                                        </div>
+                                        <ul class="gdlr-flex-thumbnail-control" id="gdlr-flex-thumbnail-control">
+                                            <li><img src="@Model.image" alt="" width="150" height="150"></li>
+                                            <li><img src="@Model.image1" alt="" width="150" height="150"></li>
+                                            <li><img src="@Model.image2" alt="" width="150" height="150"></li>
+                                            <li><img src="@Model.image3" alt="" width="150" height="150"></li>
+                                            <li><img src="@Model.image4" alt="" width="150" height="150"></li>
+                                        </ul>
+                                    </div>
+                                    <div style="font-size: 25px; color: #b89f80" class="gdlr-room-title-wrapper">
+                                        <br />
+                                        <h1 class="gdlr-room-title">@Model.roomname</h1>
+                                        <div class="gdlr-room-price">
+                                            <br />
+                                            <span class="gdlr-head">Giá: </span><span class="gdlr-tail">@String.Format("{0:0,0}", Model.price) VND/Đêm</span>
+                                        </div>
+                                        <div class="clear">
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <a class="gdlr-button with-border" href="@Url.Action("DatPhong", "DatPhong", new { @id = Model.roomid },null)">Đặt Phòng<i class="fa fa-long-arrow-right icon-long-arrow-right"></i></a>
+                                    <br />
+                                    <div style="font-size: 15px; color: white" class="gdlr-hotel-room-info">
+                                        <div class="gdlr-room-info">
+                                            <i class="fa fa-check-square-o icon-check"></i><span class="gdlr-head">Giường: </span><span class="gdlr-tail">@Model.bed</span>
+                                        </div>
+                                        <div class="gdlr-room-info">
+                                            <i class="fa fa-check-square-o icon-check"></i><span class="gdlr-head">Số Lượng Tối Đa: </span><span class="gdlr-tail">@Model.maxpeople</span>
+                                        </div>
+                                        <div class="gdlr-room-info">
+                                            <i class="fa fa-check-square-o icon-check"></i><span class="gdlr-head">Cảnh: </span><span class="gdlr-tail">@Model.view</span>
+                                        </div>
+                                        <div class="gdlr-room-info">
+                                            <i class="fa fa-check-square-o icon-check"></i><span class="gdlr-head">Diện Tích: </span><span class="gdlr-tail">@Model.sizeRoom</span>
+                                        </div>
+                                        <div class="gdlr-room-info">
+                                            <i class="fa fa-check-square-o icon-check"></i><span class="gdlr-head">Wifi: </span><span class="gdlr-tail">Có</span>
+                                        </div>
+                                        <div class="gdlr-room-info">
+                                            <i class="fa fa-check-square-o icon-check"></i><span class="gdlr-head">Dịch Vụ: </span><span class="gdlr-tail">Có</span>
+                                        </div>
+                                        <div class="clear">
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div style="color:wheat" class="gdlr-room-content">
+                                        @Html.Raw(Model.roomdes)
+                                    </div>
+                                    <br />
+                            </div>
+                            <!-- #room -->
+                            <div class="clear">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- gdlr-content -->
+</div>
+</div>
+<!-- content wrapper -->

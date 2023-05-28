@@ -1,0 +1,24 @@
+﻿@model List<WebBooking.Models.DB.AspNetUser>
+
+@{
+    ViewBag.Title = "DANH SÁCH TÀI KHOẢN";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table>
+    <tr>
+        <th>Email</th>
+        <th>Tài khoản</th>
+        <th>Số điện thoại</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Email</td>
+            <td>@user.UserName</td>
+            <td>@user.PhoneNumber</td>
+        </tr>
+    }
+</table>

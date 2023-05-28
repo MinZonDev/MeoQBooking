@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebBooking.Models.DB.Room>
+
+@{
+    ViewBag.Title = "Room";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="gdlr-header-substitute">
+</div>
+<div class="gdlr-page-title-wrapper">
+    <div class="gdlr-page-title-overlay"></div>
+    <div class="gdlr-page-title-container container">
+        <h1 class="gdlr-page-title">Các Phòng</h1>
+        <span class="gdlr-page-caption">Quý khách hãy chọn cho mình một căn phòng ưng ý</span>
+    </div>
+</div>
+<!-- is search -->
+<div class="content-wrapper">
+    <div class="gdlr-content">
+        <!-- Above Sidebar Section-->
+        <!-- Sidebar With Content Section-->
+        <div class="with-sidebar-wrapper">
+            <section id="content-section-1">
+                <div class="section-container container">
+                    <div class="room-item-wrapper type-classic" style="margin-bottom: 30px;">
+                        <div class="room-item-holder ">
+                            <div class="clear"></div>
+                            @foreach (var item in Model)
+                            {
+                                <div class="four columns">
+                                    <div class="gdlr-item gdlr-room-item gdlr-classic-room">
+                                        <div class="gdlr-ux gdlr-classic-room-ux">
+                                            <div class="gdlr-room-thumbnail">
+                                                <a href="@Url.Action("ChiTietPhong", "Phong", new { @id = item.roomid },null)"><img style="width:700px; height:300px" src="@item.image" alt=""></a>
+                                            </div>
+                                            <h3 style="font-size:30px" class="gdlr-room-title"><a href="@Url.Action("ChiTietPhong", "Phong", new { @id = item.roomid },null)">@item.roomname</a></h3>
+                                            <div style="color:white" class="gdlr-hotel-room-info">
+                                                <div style="font-size: 18px" class="gdlr-room-info"><i class="fa fa-check-square-o icon-check"></i><span class="gdlr-head">Bed</span><span class="gdlr-tail">@item.bed</span></div>
+                                                <div style="font-size: 18px" class="gdlr-room-info"><i class="fa fa-check-square-o icon-check"></i><span class="gdlr-head">Max People</span><span class="gdlr-tail">@item.maxpeople</span></div>
+                                                <div style="font-size: 18px" class="gdlr-room-info"><i class="fa fa-check-square-o icon-check"></i><span class="gdlr-head">View</span><span class="gdlr-tail">@item.view</span></div>
+                                                <div style="font-size: 18px" class="gdlr-room-info"><i class="fa fa-check-square-o icon-check"></i><span class="gdlr-head">Wifi</span><span class="gdlr-tail">Có</span></div>
+                                                <div style="font-size: 25px; color: #b89f80" class="gdlr-room-category-item"><i class="fa fa-dollar"></i><span class="gdlr-head">Giá: </span><span class="gdlr-tail">@String.Format("{0:0,0}", item.price) VND/Đêm</span></div>
+                                                <div class="clear"></div>
+                                            </div><a class="gdlr-button with-border" href="@Url.Action("ChiTietPhong", "Phong", new { @id = item.roomid },null)">Chi Tiết Phòng<i class="fa fa-long-arrow-right icon-long-arrow-right"></i></a>
+                                            <a class="gdlr-button with-border" href="@Url.Action("DatPhong", "DatPhong", new { @id = item.roomid },null)">Đặt Phòng<i class="fa fa-long-arrow-right icon-long-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </section>
+        </div>
+        <!-- Below Sidebar Section-->
+    </div>
+    <!-- gdlr-content -->
+    <div class="clear"></div>
+</div>

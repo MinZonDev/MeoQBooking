@@ -1,0 +1,67 @@
+﻿@model WebBooking.Models.DB.New
+
+@{
+    ViewBag.Title = "CHI TIẾT TIN TỨC";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    @*<h4>New</h4>
+    <hr />*@
+    <dl class="dl-horizontal">
+        <dt>
+            Mã tin tức:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoryid)
+        </dd>
+
+        <dt>
+            Tựa đề:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+           Mô tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+          Ngày tạo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdtime)
+        </dd>
+
+        <dt>
+            Nội dung:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.content)
+        </dd>
+
+        <dt>
+            Hình ảnh:
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.image)" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.newid }) |
+    @Html.ActionLink("Quay về", "Index")
+</p>

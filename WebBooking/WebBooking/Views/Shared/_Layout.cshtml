@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<!--[if IE 7]><html class="ie ie7 ltie8 ltie9" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 ltie9" lang="en-US"><![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+
+<html lang="en-US">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+
+    <title>Hotel Meoq &#8211; Meoq Booking Room</title>
+
+    <link href="~/Content/assets/plugins/gdlr-hostel/gdlr-hotel.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/assets/plugins/superfish/css/superfish.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/assets/plugins/dl-menu/component.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/assets/plugins/font-awesome-new/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/assets/plugins/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/assets/plugins/flexslider/flexslider.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/assets/css/style-responsive.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/assets/css/style-custom.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/assets/plugins/masterslider/public/assets/css/masterslider.main.css" rel="stylesheet" type="text/css" media="all" />
+    @*<link rel='stylesheet' href='css\custom.css?ver=2.6' type='text/css' media='all'>*@
+    <link href="~/Content/assets/css/custom.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,700|Open+Sans:300,300i,400,400i,600,700,800|Droid+Serif:300,300i,400,600,700" rel="stylesheet">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- load the script for older ie version -->
+    <!--[if lt IE 9]>
+    <script src="https://demo.goodlayers.com/hotelmaster/wp-content/themes/hotelmaster/javascript/html5.js" type="text/javascript"></script>
+    <script src="https://demo.goodlayers.com/hotelmaster/wp-content/themes/hotelmaster/plugins/easy-pie-chart/excanvas.js" type="text/javascript"></script>
+    <![endif]-->
+    <script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=646365c5f34474145132f073" async="async"></script><!--End of Fchat.vn-->
+</head>
+
+<body data-rsssl="1" class="home page-template-default page page-id-3720 _masterslider _msp_version_3.2.2  hotelmaster-button-classic-style  header-style-2  hotelmaster-classic-style  hotelmaster-single-classic-style">
+    <div class="body-wrapper  float-menu gdlr-icon-light gdlr-header-solid" data-home="#">
+        <header class="gdlr-header-wrapper">
+
+            <!-- logo -->
+            <div class="gdlr-header-inner">
+                <div class="gdlr-header-container container">
+                    <!-- logo -->
+                    <div class="gdlr-logo">
+                        <div class="gdlr-logo-inner">
+                            <a href="@Url.Action("TrangChu","TrangChu",new { })">
+                                <img src="~/Content/assets/images/Logo/logo3.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- navigation -->
+                    <div class="gdlr-navigation-wrapper">
+                        <nav class="gdlr-navigation" id="gdlr-main-navigation" role="navigation">
+                            <ul id="menu-main-menu-1" class="sf-menu gdlr-main-menu">
+                                <li class="menu-item current-menu-item menu-item current-menu-item  gdlr-normal-menu"><a href="@Url.Action("TrangChu","TrangChu",new { })">Trang Chủ</a></li>
+                                <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children gdlr-normal-menu">
+                                    <a href="@Url.Action("CacLoaiPhong","LoaiPhong",new { })" class="sf-with-ul-pre">Loại Phòng</a>
+                                </li>
+                                <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children gdlr-normal-menu">
+                                    <a href="@Url.Action("CacPhong","Phong",new { })" class="sf-with-ul-pre">Tất cả Phòng</a>
+                                </li>
+                                <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children gdlr-normal-menu">
+                                    <a href="@Url.Action("LienHe","TrangChu",new { })" class="sf-with-ul-pre">Liên Hệ</a>
+                                </li>
+                                <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children gdlr-normal-menu">
+                                    <a href="@Url.Action("TinTuc","TinTuc",new { })" class="sf-with-ul-pre">Tin Tức</a>
+                                </li>
+                                <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children gdlr-normal-menu">
+                                    <a href="@Url.Action("ThongTin","TrangChu",new { })" class="sf-with-ul-pre">Thông Tin</a>
+                                </li>
+                                @if (!Request.IsAuthenticated)
+                                {
+                                    <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children gdlr-normal-menu">
+                                        <a href="@Url.Action("Login","TaiKhoan",new { })" class="sf-with-ul-pre">Đăng Nhập</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children gdlr-normal-menu">
+                                        <a href="@Url.Action("Index","ThongTinTaiKhoan",new { })"> Welcome: @User.Identity.Name |</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children gdlr-normal-menu">
+                                        <a class="nav-link" href="javascript:document.getElementById('logOffForm').submit()">Đăng Xuất</a>
+                                    </li>
+                                }
+                                @if (Request.IsAuthenticated)
+                                {
+                                    <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children gdlr-normal-menu">
+                                        @using (Html.BeginForm("LogOff", "TaiKhoan", FormMethod.Post, new { @id = "logOffForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                        <span class="gdlr-menu-search-button-sep">•</span>
+                        <i class="fa fa-search icon-search gdlr-menu-search-button" id="gdlr-menu-search-button"></i>
+                        <div class="gdlr-menu-search" id="gdlr-menu-search">
+                            <form action="@Url.Action("CacPhong", "Phong")" method="get">
+                                <input type="text" name="searchTerm" placeholder="Nhập từ khóa tìm kiếm" />
+                                <input type="submit" value="">
+                                <div class="clear"></div>
+                            </form>
+                        </div>
+                        <div class="gdlr-navigation-gimmick " id="gdlr-navigation-gimmick"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </header>
+
+        <div id="gdlr-header-substitute">
+        </div>
+
+        @RenderBody()
+
+
+        <footer class="footer-wrapper">
+            <div class="footer-container container">
+                <div style="margin-left:100px" class="footer-column three columns" id="footer-widget-1">
+                    <div id="text-5" class="widget widget_text gdlr-item gdlr-widget">
+                        <h3 style="font-size:30px" class="gdlr-widget-title">ĐẶT PHÒNG!</h3>
+                        <div class="clear"></div>
+                        <div style="font-size:20px" class="textwidget">
+                            <p><i class="gdlr-icon fa fa-phone" style="color: #fff; font-size: 16px; "></i>+84 09240072002</p>
+                            <div class="clear"></div>
+                            <div class="gdlr-space" style="margin-top: -15px;"></div>
+                            <br />
+                            <p><i class="gdlr-icon fa fa-envelope-o" style="color: #fff; font-size: 16px; "></i> minzondev@gmail.com</p>
+                            <div class="clear"></div>
+                            <div class="gdlr-space" style="margin-top: 25px;"></div>
+                            <p><a href="https://www.facebook.com/24.thanhdanh.07/" target="_blank"><i class="gdlr-icon fa fa-facebook-square" style="color: #fff; font-size: 24px; "></i></a> <a href="https://www.instagram.com/dawn_and_chill/" target="_blank"><i class="gdlr-icon fa fa-instagram" style="color: #fff; font-size: 24px; "></i></a></p>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="footer-column three columns" id="footer-widget-2">
+                        <div id="recent-posts-5" class="widget widget_recent_entries gdlr-item gdlr-widget">
+                            <h3 class="gdlr-widget-title">TIN TỨC GẦN ĐÂY</h3>
+                            <div class="clear"></div>
+                            <ul>
+                                @foreach (var item in Model)
+                                {
+                                    <li>
+                                        <a href="sem-porta-mollis-parturient\index.html">@item.CategoryName</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>*@
+                <div style="margin-left:180px" class="footer-column six columns" id="footer-widget-3">
+                    <div id="text-10" class="widget widget_text gdlr-item gdlr-widget">
+                        <h3 style="font-size:30px" class="gdlr-widget-title">GIẢI THƯỞNG ĐẠT ĐƯỢC</h3>
+                        <div class="clear"></div>
+                        <div style="font-size:20px" class="textwidget">
+                            @*<img src="upload\awards-logo-dark-dark.jpg" alt="">*@
+                            <div class="clear"></div>
+                            <div class="gdlr-space" style="margin-top: 20px; font-size:20px"></div>
+                            Giải thưởng "Khách sạn hàng đầu" (Top Hotel) do trang web đặt phòng Agoda trao tặng năm 2019.
+                            Giải thưởng "Khách sạn xuất sắc" (Excellent Hotel) do trang web đặt phòng Booking.com trao tặng trong các năm 2018, 2019 và 2020.
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="copyright-wrapper">
+                <div class="copyright-container container">
+                    <div style="margin-right:40%" class="copyright-right">
+                        Copyright 2023 All Right Reserved
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- body-wrapper -->
+    <script src="~/Content/assets/js/jquery/jquery.js"></script>
+    <script src="~/Content/assets/js/jquery/jquery-migrate.min.js"></script>
+    <script src="~/Content/assets/js/jquery/ui/core.min.js"></script>
+    <script src="~/Content/assets/js/jquery/ui/datepicker.min.js"></script>
+    <script type='text/javascript'>
+        jQuery(document).ready(function (jQuery) {
+            jQuery.datepicker.setDefaults({
+                "closeText": "Close",
+                "currentText": "Today",
+                "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                "nextText": "Next",
+                "prevText": "Previous",
+                "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"],
+                "dateFormat": "MM d, yy",
+                "firstDay": 1,
+                "isRTL": false
+            });
+        });
+    </script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var objectL10n = {
+            "closeText": "Done",
+            "currentText": "Today",
+            "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            "monthStatus": "Show a different month",
+            "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+            "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"],
+            "firstDay": "1"
+        };
+        /* ]]> */
+    </script>
+    <script src="~/Content/assets/plugins/gdlr-hostel/gdlr-hotel.js"></script>
+
+    <script src="~/Content/assets/plugins/superfish/js/superfish.js"></script>
+
+    <script src="~/Content/assets/js/hoverIntent.min.js"></script>
+
+    <script src="~/Content/assets/plugins/dl-menu/modernizr.custom.js"></script>
+
+    <script src="~/Content/assets/plugins/dl-menu/jquery.dlmenu.js"></script>
+
+    <script src="~/Content/assets/js/jquery.easing.js"></script>
+
+    <script src="~/Content/assets/js/jquery.transit.min.js"></script>
+
+    <script src="~/Content/assets/plugins/fancybox/jquery.fancybox.pack.js"></script>
+
+    <script src="~/Content/assets/plugins/fancybox/helpers/jquery.fancybox-media.js"></script>
+
+    <script src="~/Content/assets/plugins/fancybox/helpers/jquery.fancybox-thumbs.js"></script>
+
+    <script src="~/Content/assets/plugins/flexslider/jquery.flexslider.js"></script>
+
+    <script src="~/Content/assets/js/jquery.isotope.min.js"></script>
+
+    <script src="~/Content/assets/js/gdlr-script.js"></script>
+    <script>
+        (window.MSReady = window.MSReady || []).push(function ($) {
+
+            "use strict";
+            var masterslider_7f3f = new MasterSlider();
+
+            // slider controls
+            masterslider_7f3f.control('arrows', {
+                autohide: true,
+                overVideo: true
+            });
+            masterslider_7f3f.control('bullets', {
+                autohide: false,
+                overVideo: true,
+                dir: 'h',
+                align: 'bottom',
+                space: 8,
+                margin: 25
+            });
+            // slider setup
+            masterslider_7f3f.setup("MS5af5c0e887f3f", {
+                width: 1140,
+                height: 530,
+                minHeight: 0,
+                space: 0,
+                start: 1,
+                grabCursor: true,
+                swipe: false,
+                mouse: true,
+                keyboard: false,
+                layout: "fullwidth",
+                wheel: false,
+                autoplay: true,
+                instantStartLayers: false,
+                mobileBGVideo: false,
+                loop: true,
+                shuffle: false,
+                preload: 0,
+                heightLimit: true,
+                autoHeight: false,
+                smoothHeight: true,
+                endPause: false,
+                overPause: true,
+                fillMode: "fill",
+                centerControls: true,
+                startOnAppear: false,
+                layersMode: "center",
+                autofillTarget: "",
+                hideLayers: false,
+                fullscreenMargin: 0,
+                speed: 20,
+                dir: "h",
+                parallaxMode: 'swipe',
+                view: "fadeFlow"
+            });
+
+            MSScrollParallax.setup(masterslider_7f3f, 30, 50, true);
+            $("head").append("<link rel='stylesheet' id='ms-fonts'  href='//fonts.googleapis.com/css?family=Open+Sans:300,700|Merriweather:regular' type='text/css' media='all' />");
+
+            window.masterslider_instances = window.masterslider_instances || [];
+            window.masterslider_instances.push(masterslider_7f3f);
+        });
+    </script>
+    <script src="~/Content/assets/plugins/google-map-plugin/assets/js/maps.js"></script>
+    <script src="~/Content/assets/plugins/masterslider/public/assets/js/masterslider.min.js"></script>
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+    @RenderSection("upload", required: false)
+    @RenderSection("ckfinder", false)
+</body>
+</html>

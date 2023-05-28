@@ -1,0 +1,43 @@
+﻿@model WebBooking.Models.DB.Category
+
+@{
+    ViewBag.Title = "CHI TIẾT LOẠI PHÒNG";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin loại phòng @Model.categoryname</h2>
+
+<div>
+    <h4>Loại phòng : @Model.categoryname</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên loại phòng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoryname)
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categorydes)
+        </dd>
+
+        <dt>
+            Hình ảnh:
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.image)" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.categoryid }) |
+    @Html.ActionLink("Quay về", "Index")
+</p>

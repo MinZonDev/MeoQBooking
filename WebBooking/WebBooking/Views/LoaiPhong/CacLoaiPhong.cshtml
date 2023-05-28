@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebBooking.Models.DB.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="gdlr-header-substitute">
+</div>
+<div class="gdlr-page-title-wrapper">
+    <div class="gdlr-page-title-overlay"></div>
+    <div class="gdlr-page-title-container container">
+        <h1 class="gdlr-page-title">Các Loại Phòng</h1>
+        <span class="gdlr-page-caption">Trang Các Loại Phòng</span>
+    </div>
+</div>
+<!-- is search -->
+<div class="content-wrapper">
+    <div class="gdlr-content">
+        <!-- Above Sidebar Section-->
+        <!-- Sidebar With Content Section-->
+        <div class="with-sidebar-wrapper">
+            <section id="content-section-1">
+                <div class="section-container container">
+                    <div class="room-item-wrapper type-classic" style="margin-bottom: 30px;">
+                        <div class="room-item-holder ">
+                            <div class="clear"></div>
+                            @foreach (var item in Model)
+                            {
+                                <div class="four columns">
+                                    <div class="gdlr-item gdlr-room-item gdlr-classic-room">
+                                        <div class="gdlr-ux gdlr-classic-room-ux">
+                                            <div class="gdlr-room-thumbnail">
+                                                @*<a href="#"><img src="~/Content/assets/images/hotels/StandardTwinRoomWithSofa/room1.jpg" alt="" width="700" height="400"></a>*@
+                                                <a href="@Url.Action("Phong", "LoaiPhong", new { @id = item.categoryid },null)"><img style="width:700px; height:300px" src="@item.image" alt=""></a>
+                                            </div>
+                                            <h3 class="gdlr-room-title"><a href="@Url.Action("Phong", "LoaiPhong", new { @id = item.categoryid },null)">@item.categoryname</a></h3>
+                                            <div class="gdlr-hotel-room-info">
+                                                <div class="clear"></div>
+                                            </div><a class="gdlr-button with-border" href="@Url.Action("Phong", "LoaiPhong", new { @id = item.categoryid },null)">Xem Các Phòng<i class="fa fa-long-arrow-right icon-long-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </section>
+        </div>
+        <!-- Below Sidebar Section-->
+    </div>
+    <!-- gdlr-content -->
+    <div class="clear"></div>
+</div>

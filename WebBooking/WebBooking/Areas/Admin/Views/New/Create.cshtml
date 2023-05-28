@@ -1,0 +1,79 @@
+﻿@model WebBooking.Models.DB.New
+
+@{
+    ViewBag.Title = "TẠO MỚI TIN TỨC";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>New</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <strong>Loại danh mục:</strong>
+            <div class="col-md-10">
+                @Html.DropDownList("categoryid", new SelectList(ViewBag.CategoryNews, "categoryid", "categoryname"), "-- Select Category --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.categoryid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <strong>Tiêu đề:</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Mô tả:</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <strong>Nội dung:</strong>
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.content, new { htmlAttributes = new { @class = "form-control" } })*@
+                <textarea class="form-control" name="content" id="inputdes"></textarea>
+                @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <strong>Hình ảnh:</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.image, new { htmlAttributes = new { @class = "form-control" } })
+                <a href="#" class="btn btn-success btn-sm" onclick="BrowseServer()">Chọn hình ảnh</a>
+                @Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Quay về", "Index")
+</div>
+@section ckfinder{
+    <script>CKEDITOR.replace('inputdes')
+        function BrowseServer() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = SetFileField;
+            finder.popup();
+        }
+        function SetFileField(fileUrl) {
+            document.getElementById('image').value = fileUrl;
+        }</script>
+
+
+
+}

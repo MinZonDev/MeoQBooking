@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WebBooking.Models.DB.Room>
+
+@{
+    ViewBag.Title = "DANH SÁCH PHÒNG";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>@ViewBag.Title</h2>
+<style>
+    img {
+        width: 100px;
+    }
+</style>
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<div class="row m-b-30">
+    <div class="col-md-8">
+        <div class="col-md-6">
+            <form action="@Url.Action("Index", "Room")" method="get">
+                <div class="input-affix m-v-10">
+                    <i class="prefix-icon anticon anticon-search opacity-04"></i>
+                    <input id="keyword" name="searchTerm" type="text" class="form-control" placeholder="Nhập từ khóa cần tìm kiếm">
+                    <input type="submit" value="Tìm kiếm">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-4 text-right">
+        <a class="btn btn-primary" @Html.ActionLink("Thêm phòng mới", "Create")@*<i class="anticon anticon-plus-circle m-r-5"></i><span>Thêm sản phẩm</span>*@</a>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Loại Phòng
+        </th>
+        <th>
+            Tên Phòng
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.roomdes)
+        </th>*@
+        <th>
+           Giá tiền
+        </th>
+        <th>
+            Hình Ảnh
+        </th>
+        <th>
+            Số người tối đa
+        </th>
+        <th>Hành động</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.categoryname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.roomname)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.roomdes)
+        </td>*@
+        <td>
+            @*@Html.DisplayFor(modelItem => item.price)*@
+            @item.price.Value.ToString("#,##0") VNĐ
+        </td>
+        <td>
+            <img src="@Html.DisplayFor(modelItem => item.image)" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maxpeople)
+        </td>
+        <td>
+            @Html.ActionLink("Chi tiết", "Details", "Room", new { area = "Admin", id = item.roomid }, null) |
+            @Html.ActionLink("Sửa", "Edit", "Room", new { area = "Admin", id = item.roomid }, null) |
+            @Html.ActionLink("Xóa", "Delete", "Room", new { area = "Admin", id = item.roomid }, null)
+        </td>
+    </tr>
+}
+
+</table>

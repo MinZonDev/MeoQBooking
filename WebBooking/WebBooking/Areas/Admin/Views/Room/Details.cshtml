@@ -1,0 +1,141 @@
+﻿@model WebBooking.Models.DB.Room
+
+@{
+    ViewBag.Title = "CHI TIẾT PHÒNG";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>@ViewBag.Title</h2>
+<div class="card-body">
+    <h4 class="card-title">Thông tin phòng : @Model.roomname</h4>
+    <div class="table-responsive">
+        <table class="product-info-table m-t-20">
+            <tbody>
+                <tr>
+                    <td>Mã phòng:</td>
+                    <td class="text-dark font-weight-semibold">@Model.roomid</td>
+                </tr>
+                <tr>
+                    <td>Tên phòng:</td>
+                    <td>@Model.roomname</td>
+                </tr>
+                <tr>
+                    <td>Hình ảnh:</td>
+                    <td>
+                        <img width="200" height="200" src="@Model.image" alt="@Model.roomname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Banner 1:</td>
+                    <td>
+                        <img width="200" height="200" src="@Model.image1" alt="@Model.roomname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Banner 2:</td>
+                    <td>
+                        <img width="200" height="200" src="@Model.image2" alt="@Model.roomname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Banner 3:</td>
+                    <td>
+                        <img width="200" height="200" src="@Model.image3" alt="@Model.roomname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Banner 4:</td>
+                    <td>
+                        <img width="200" height="200" src="@Model.image4" alt="@Model.roomname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mô tả :</td>
+                    <td>@Model.roomdes</td>
+                </tr>
+                <tr>
+                    <td>Giá:</td>
+                    <td>@Model.price.Value.ToString("#,##0") VNĐ/Đêm</td>
+                </tr>
+                <tr>
+                    <td>Discount:</td>
+                    <td>@Model.promotion</td>
+                </tr>
+                <tr>
+                    <td>Loại phòng:</td>
+                    <td>@Model.Category.categoryname</td>
+                </tr>
+                <tr>
+                    <td>Số giường:</td>
+                    <td>@Model.bed</td>
+                </tr>
+                <tr>
+                    <td>Số người tối đa:</td>
+                    <td>@Model.maxpeople</td>
+                </tr>
+                <tr>
+                    <td>View:</td>
+                    <td>@Model.view</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+@*<div>
+    <h4>Room</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.categoryname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.categoryname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.roomname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.roomname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.roomdes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.roomdes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.image)" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.maxpeople)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.maxpeople)
+        </dd>
+
+    </dl>
+</div>*@
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.roomid }) |
+    @Html.ActionLink("Quay về", "Index")
+</p>
