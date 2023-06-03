@@ -1,0 +1,16 @@
+﻿@model WebBooking.Models.DB.Room
+
+@{
+    ViewBag.Title = "XÓA THÔNG TIN PHÒNG";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>@ViewBag.Title</h2>
+<div>
+    <h2>Xác nhận xóa phòng</h2>
+    <p>Bạn có chắc muốn xóa phòng: <strong>@Model.roomname</strong>?</p>
+    @using (Html.BeginForm("DeleteConfirmed", "Room", new { id = Model.roomid }, FormMethod.Post))
+    {
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default" })
+    }
+</div>

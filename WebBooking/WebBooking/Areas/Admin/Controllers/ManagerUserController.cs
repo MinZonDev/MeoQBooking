@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace WebBooking.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ManagerUserController : Controller
     {
         // GET: Admin/ManagerUser

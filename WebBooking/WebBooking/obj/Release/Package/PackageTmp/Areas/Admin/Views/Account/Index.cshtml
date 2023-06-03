@@ -1,0 +1,107 @@
+﻿@model PagedList.IPagedList<WebBooking.Models.DB.AspNetUser>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "DANH SÁCH NGƯỜI DÙNG";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row m-b-30">
+    <div class="col-md-8">
+        <div class="col-md-6">
+            <form action="@Url.Action("Index", "Account")" method="get">
+                <div class="input-affix m-v-10">
+                    <i class="prefix-icon anticon anticon-search opacity-04"></i>
+                    <input id="keyword" name="searchTerm" type="text" class="form-control" placeholder="Nhập tên tài khoản cần tìm kiếm">
+                    <input type="submit" value="Tìm kiếm">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--<div class="col-lg-4 text-right">
+        <a class="btn btn-primary" @Html.ActionLink("Thêm người dùng", "Create")--> @*<i class="anticon anticon-plus-circle m-r-5"></i><span>Thêm sản phẩm</span>*@<!--</a>
+    </div>-->
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Email
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Tài khoản
+        </th>
+        @*<th>
+                Họ
+            </th>
+            <th>
+                Tên
+            </th>
+            <th>
+                Ngày sinh
+            </th>
+            <th>
+                Avatar
+            </th>*@
+        @*<th></th>*@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+                @*</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Birthday)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Avatar)
+                    </td>*@
+            @*<td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+            </td>*@
+        </tr>
+    }
+
+</table>
+<div class="gdlr-pagination">
+    <style>
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 2;
+            color: #ffffff;
+            cursor: default;
+            background-color: #b89f80;
+            border-color: #b89f80;
+        }
+    </style>
+    <span aria-current='page' class='page-numbers current'>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount</span>
+    <div style="text-align: right; margin-left: 695px; color: aliceblue; border-color: #b89f80 " class="pagination-container">
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions { Display = PagedListDisplayMode.IfNeeded })
+    </div>
+
+</div>

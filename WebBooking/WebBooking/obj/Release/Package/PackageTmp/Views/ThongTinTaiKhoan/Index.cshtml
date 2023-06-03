@@ -1,0 +1,79 @@
+﻿@model WebBooking.Models.ApplicationUser
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<h2>Thông tin tài khoản</h2>
+<p><strong>Avatar:</strong> @Model.Avatar</p>
+<p><strong>Tên đăng nhập:</strong> @Model.UserName</p>
+<p><strong>Email:</strong> @Model.Email</p>
+<p><strong>Số điện thoại:</strong> @Model.PhoneNumber</p>
+<p><strong>Sinh nhật:</strong> @Model.Birthday.ToString("dd/MM/yyyy")</p>*@
+<!-- Hiển thị các thông tin khác -->
+<div id="gdlr-header-substitute">
+</div>
+<div class="gdlr-page-title-wrapper">
+    <div class="gdlr-page-title-overlay"></div>
+    <div class="gdlr-page-title-container container">
+        <h1 class="gdlr-page-title">Thông tin tài khoản</h1>
+    </div>
+</div>
+<!-- is search -->
+<div class="content-wrapper">
+    <div class="gdlr-content">
+        <div class="with-sidebar-wrapper">
+            <div class="with-sidebar-container container gdlr-class-no-sidebar">
+                <div class="with-sidebar-left twelve columns">
+                    <div class="with-sidebar-content twelve columns">
+                        <div class="gdlr-item gdlr-item-start-content" id="gdlr-single-booking-content" data-ajax="https://demo.goodlayers.com/hotelmaster/wp-admin/admin-ajax.php">
+                            <form style="width:600px; margin-left:30%" class="gdlr-reservation-bar" data-action="gdlr_hotel_booking">
+                                <div style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-bar-title">Thông Tin Đặt Phòng</div>
+                                <div class="gdlr-reservation-bar-summary-form"></div>
+                                <div class="gdlr-reservation-bar-room-form"></div>
+                                <div class="gdlr-reservation-bar-date-form">
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px ; width:240px; margin-left:65%" class="gdlr-reservation-field-title"><img src="@Model.Avatar" /></span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Tên khách hàng: @Model.UserName</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Email: @Model.Email</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Số điện thoại: @Model.PhoneNumber</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Họ: @Model.FirstName</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Tên: @Model.LastName</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Sinh nhật: @Model.Birthday.ToString("dd/MM/yyyy")</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                    </div>
+                                    @Html.ActionLink("Chỉnh sửa", "Edit", "ThongTinTaiKhoan", new { userId = Model.Id }, null)
+                                </div>
+                                <div class="gdlr-reservation-bar-service-form" id="gdlr-reservation-bar-service-form"></div>
+                            </form>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!-- gdlr-content -->
+    <div class="clear"></div>
+</div>

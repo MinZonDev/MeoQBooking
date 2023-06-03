@@ -1,0 +1,200 @@
+﻿@model PagedList.IPagedList<WebBooking.Models.DB.Booking>
+@using PagedList.Mvc;
+@using WebBooking.Models.DB
+@{
+    ViewBag.Title = "DANH SÁCH ĐẶT PHÒNG";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>DANH SÁCH ĐẶT PHÒNG</h2>
+@*<div id="search-3" class="widget widget_search gdlr-item gdlr-widget">
+        <div class="gdl-search-form">
+            <form action="@Url.Action("Index", "Booking")" method="get">
+                <input type="text" name="searchTerm" placeholder="Nhập từ khóa tìm kiếm" />
+                <input type="submit" value="">
+                <div class="clear"></div>
+            </form>
+        </div>
+    </div>*@
+<div class="row m-b-30">
+    <div class="col-md-8">
+        <div class="col-md-6">
+            <form action="@Url.Action("Index", "Booking")" method="get">
+                <div class="input-affix m-v-10">
+                    <i class="prefix-icon anticon anticon-search opacity-04"></i>
+                    <input id="keyword" name="searchTerm" type="text" class="form-control" placeholder="Nhập từ khóa cần tìm kiếm">
+                    <input type="submit" value="Tìm kiếm">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <tr>
+
+        <th>
+            Mã đặt phòng:
+        </th>
+        <th>
+            Tên phòng:
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.userid)
+            </th>*@
+        <th>
+            Tên khách hàng:
+        </th>
+        <th>
+            Email:
+        </th>
+        <th>
+            Số điện thoại:
+        </th>
+        <th>
+            CMND/CCCD:
+        </th>
+        <th>
+            Ngày sinh:
+        </th>
+        <th>
+            Ngày đặt phòng:
+        </th>
+        <th>
+            Số người:
+        </th>
+        <th>
+            Ngày nhân phòng:
+        </th>
+        <th>
+            Ngày trả phòng:
+        </th>
+        <th>
+            Tổng tiền:
+        </th>
+        @*<th>
+                Trạng thái đặt phòng:
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.bookingid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.roomname)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.userid)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.customername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.identiyid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bookingdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberpeople)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.checkin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.checkout)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.total)*@
+                @string.Format("{0:N0}", item.total) VNĐ
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Status.statusname)
+                </td>*@
+            @*<td>
+                @Html.DropDownList("Status", null, new { @class = "status-dropdown", data_bookingid = item.bookingid })
+            </td>*@
+            <td>
+                <select class="status-dropdown" data-bookingid="@item.bookingid">
+                    @foreach (var status in ViewBag.StatusList as List<Status>)
+                    {
+                        <option value="@status.statusid" @(status.statusid == item.statusid ? "selected" : "")>@status.statusname</option>
+                    }
+                </select>
+            </td>
+            @*<td>
+                    @Html.ActionLink("Thay đổi trạng thái", "ChangeBookingStatus", new { bookingId = item.bookingid })
+                </td>*@
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.bookingid }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.bookingid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.bookingid })
+                </td>*@
+        </tr>
+    }
+
+</table>
+<div class="gdlr-pagination">
+    <style>
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 2;
+            color: #ffffff;
+            cursor: default;
+            background-color: #b89f80;
+            border-color: #b89f80;
+        }
+    </style>
+    <span aria-current='page' class='page-numbers current'>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount</span>
+    <div style="text-align: right; margin-left: 695px; color: aliceblue; border-color: #b89f80 " class="pagination-container">
+
+        @Html.PagedListPager(Model, page => Url.Action("TinTuc", new { page }), new PagedListRenderOptions { Display = PagedListDisplayMode.IfNeeded })
+    </div>
+
+</div>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $(".status-dropdown").change(function () {
+                var bookingid = $(this).data("bookingid");
+                var statusid = $(this).val();
+
+                $.ajax({
+                    url: "@Url.Action("UpdateBookingStatus", "Booking")",
+                    type: "POST",
+                    data: { bookingid: bookingid, statusid: statusid },
+                    success: function (response) {
+                        if (response.success) {
+                            // Cập nhật thành công, có thể thực hiện các thay đổi UI cần thiết
+                            alert("Cập nhật trạng thái phòng thành công.");
+                        } else {
+                            // Xử lý lỗi nếu cần
+                            alert("Có lỗi xảy ra khi cập nhật trạng thái phòng.");
+                        }
+                    },
+                    error: function () {
+                        // Xử lý lỗi nếu cần
+                        alert("Có lỗi xảy ra khi gửi yêu cầu cập nhật trạng thái phòng.");
+                    }
+                });
+            });
+        });
+    </script>
+}
+

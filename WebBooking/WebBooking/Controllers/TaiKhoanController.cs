@@ -89,10 +89,10 @@ namespace WebBooking.Controllers
                 {
                     return RedirectToAction("Index", "Home", new { area = "Admin" });
                 }
-                else if (await UserManager.IsInRoleAsync(user.Id, "KhachHang"))
-                {
-                    return RedirectToAction("TrangChu", "TrangChu");
-                }
+                //else if (await UserManager.IsInRoleAsync(user.Id, "KhachHang"))
+                //{
+                //    return RedirectToAction("TrangChu", "TrangChu");
+                //}
                 else
                 {
                     return RedirectToAction("TrangChu", "TrangChu");
@@ -192,7 +192,7 @@ namespace WebBooking.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("TrangChu", "TrangChu");
                 }
                 AddErrors(result);
             }
@@ -240,10 +240,10 @@ namespace WebBooking.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "TaiKhoan", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                return RedirectToAction("ForgotPasswordConfirmation", "TaiKhoan");
             }
 
             // If we got this far, something failed, redisplay form

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "QUẢN LÝ QUYỀN TRUY CẬP";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>THÊM QUYỀN TRUY CẬP CHO NGƯỜI DÙNG:</h3>
+@using (Html.BeginForm("AddRoleToUser", "Account", FormMethod.Post))
+{
+    <label for="userName">Tài khoản:</label>
+    <select name="userName" id="userName">
+        @foreach (var user in ViewBag.Users)
+        {
+            <option value="@user.UserName">@user.UserName</option>
+        }
+    </select>
+
+    <label for="roleName">Quyền truy cập:</label>
+    <select name="roleName" id="roleName">
+        @foreach (var role in ViewBag.Roles)
+        {
+            <option value="@role.Name">@role.Name</option>
+        }
+    </select>
+
+    <input type="submit" value="Thêm quyền" />
+}
+@*<h3>Người dùng:</h3>
+<ul>
+    @foreach (var user in ViewBag.Users)
+    {
+        <li>@user.UserName</li>
+    }
+</ul>
+
+<h3>Quyền truy cập:</h3>
+<ul>
+    @foreach (var role in ViewBag.Roles)
+    {
+        <li>@role.Name</li>
+    }
+</ul>*@
+
+

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<WebBooking.Models.DB.Booking>
+
+@{
+    ViewBag.Title = "DANH SÁCH ĐẶT PHÒNG";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+
+        <th>
+            Mã đặt phòng
+        </th>
+        <th>
+            Tên phòng
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.userid)
+            </th>*@
+        <th>
+            Tên khách hàng
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            CMND/CCCD
+        </th>
+        <th>
+            Ngày sinh
+        </th>
+        <th>
+            Ngày đặt phòng
+        </th>
+        <th>
+            Số người
+        </th>
+        <th>
+            Ngày nhân phòng
+        </th>
+        <th>
+            Ngày trả phòng
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+        <th>
+            Trạng thái đặt phòng
+        </th>
+        @*<th></th>*@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.bookingid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.roomname)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.userid)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.customername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.identiyid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bookingdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberpeople)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.checkin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.checkout)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.statusname)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.bookingid }) |
+                @Html.ActionLink("Details", "Details", new { id = item.bookingid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.bookingid })
+            </td>*@
+        </tr>
+    }
+
+</table>

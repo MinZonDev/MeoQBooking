@@ -1,0 +1,67 @@
+﻿@model WebBooking.Models.DB.New
+
+@{
+    ViewBag.Title = "ChiTietTinTuc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    p{
+        color:white;
+    }
+</style>
+
+<div id="gdlr-header-substitute">
+</div>
+<div class="gdlr-page-title-wrapper">
+    <div class="gdlr-page-title-overlay">
+    </div>
+    <div class="gdlr-page-title-container container">
+        <h3 class="gdlr-page-title">Chi Tiết Tin Tức</h3>
+    </div>
+</div>
+<!-- is search -->
+<div class="content-wrapper">
+    <div class="gdlr-content">
+        <div class="with-sidebar-wrapper">
+            <div class="with-sidebar-container container gdlr-class-no-sidebar">
+                <div class="with-sidebar-left twelve columns">
+                    <div class="with-sidebar-content twelve columns">
+                        <div class="gdlr-item gdlr-item-start-content">
+                            <div id="room-3595" class="post-3595 room type-room status-publish has-post-thumbnail hentry room_category-room room_tag-luxury room_tag-room room_tag-superior">
+                                <div style="margin-left:60px" class="gdlr-room-main-content">
+                                    <div class="gdlr-room-title-wrapper">
+                                        @*<h3 style="margin-left:320px; font-size:40px" class="gdlr-room-title">@Model.title</h3>*@
+                                    </div>
+                                   <br />
+                                    <div class="gdlr-room-content">
+                                        <h1 style="color:wheat;font-family:'Merriweather',serif;">@Model.description</h1>
+                                        <div class="clear">
+                                        </div>
+                                        <div class="gdlr-space" style="margin-top: 35px;">
+                                        </div>
+                                        
+                                        <p style="color:wheat">
+                                             @Html.Raw(Model.content)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #room -->
+                            <div class="clear">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- gdlr-content -->
+    <div class="clear">
+    </div>
+</div>
+<!-- content wrapper -->

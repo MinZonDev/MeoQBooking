@@ -51,6 +51,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\ck\plugin\ckfinder\bin\Release\CKFinder.dll</HintPath>
     </Reference>
+    <Reference Include="CloudinaryDotNet, Version=1.20.0.0, Culture=neutral, PublicKeyToken=c8234dc617ae7841, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.20.0\lib\net452\CloudinaryDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
       <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
     </Reference>
@@ -82,8 +85,16 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.1\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -248,6 +259,14 @@
     <Compile Include="Migrations\202305281416371_hotels9.cs" />
     <Compile Include="Migrations\202305281416371_hotels9.designer.cs">
       <DependentUpon>202305281416371_hotels9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305311011006_hotelllsls.cs" />
+    <Compile Include="Migrations\202305311011006_hotelllsls.designer.cs">
+      <DependentUpon>202305311011006_hotelllsls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305311017462_hotellllslsss.cs" />
+    <Compile Include="Migrations\202305311017462_hotellllslsss.designer.cs">
+      <DependentUpon>202305311017462_hotellllslsss.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2993,6 +3012,58 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Uploads\Images\22431722.jpg" />
+    <Content Include="Uploads\Images\22431727.jpg" />
+    <Content Include="Uploads\Images\269674053.jpg" />
+    <Content Include="Uploads\Images\269674285.jpg" />
+    <Content Include="Uploads\Images\297930382.jpg" />
+    <Content Include="Uploads\Images\297930385.jpg" />
+    <Content Include="Uploads\Images\297930391.jpg" />
+    <Content Include="Uploads\Images\297930394.jpg" />
+    <Content Include="Uploads\Images\2_726_119_1520330464875.jpg" />
+    <Content Include="Uploads\Images\446772812.jpg" />
+    <Content Include="Uploads\Images\446772814.jpg" />
+    <Content Include="Uploads\Images\446772816.jpg" />
+    <Content Include="Uploads\Images\446773003.jpg" />
+    <Content Include="Uploads\Images\446773015.jpg" />
+    <Content Include="Uploads\Images\446774105.jpg" />
+    <Content Include="Uploads\Images\446774119.jpg" />
+    <Content Include="Uploads\Images\446774125.jpg" />
+    <Content Include="Uploads\Images\447833398.jpg" />
+    <Content Include="Uploads\Images\447833433.jpg" />
+    <Content Include="Uploads\Images\447833941.jpg" />
+    <Content Include="Uploads\Images\447834282.jpg" />
+    <Content Include="Uploads\Images\451404572.jpg" />
+    <Content Include="Uploads\Images\451404650.jpg" />
+    <Content Include="Uploads\Images\451404661.jpg" />
+    <Content Include="Uploads\Images\451404666.jpg" />
+    <Content Include="Uploads\Images\52575381.jpg" />
+    <Content Include="Uploads\Images\52575385.jpg" />
+    <Content Include="Uploads\Images\52575396.jpg" />
+    <Content Include="Uploads\Images\52575397.jpg" />
+    <Content Include="Uploads\Images\52575399.jpg" />
+    <Content Include="Uploads\Images\52575407.jpg" />
+    <Content Include="Uploads\Images\52575408.jpg" />
+    <Content Include="Uploads\Images\52575410.jpg" />
+    <Content Include="Uploads\Images\52575605.jpg" />
+    <Content Include="Uploads\Images\52575668.jpg" />
+    <Content Include="Uploads\Images\52576206.jpg" />
+    <Content Include="Uploads\Images\co-nhung-loai-phong-khach-san-nao-02-06-18-1.jpg" />
+    <Content Include="Uploads\Images\co-nhung-loai-phong-khach-san-nao-02-06-18-2.jpg" />
+    <Content Include="Uploads\Images\co-nhung-loai-phong-khach-san-nao-02-06-18-3 %281%29.jpg" />
+    <Content Include="Uploads\Images\co-nhung-loai-phong-khach-san-nao-02-06-18-3.jpg" />
+    <Content Include="Uploads\Images\co-nhung-loai-phong-khach-san-nao-02-06-18-4-2 %281%29.jpg" />
+    <Content Include="Uploads\Images\goku.png" />
+    <Content Include="Uploads\Images\momo-upload-api-220208160225-637799329457435575.jpg" />
+    <Content Include="Uploads\Images\room1%281%29.jpg" />
+    <Content Include="Uploads\Images\room1.jpg" />
+    <Content Include="Uploads\Images\room4.jpg" />
+    <Content Include="Uploads\Images\room6%281%29.jpg" />
+    <Content Include="Uploads\Images\room6.jpg" />
+    <Content Include="Uploads\Images\room8%281%29.jpg" />
+    <Content Include="Uploads\Images\room8.jpg" />
+    <Content Include="Uploads\Images\trong.jpg" />
+    <Content Include="Uploads\Images\user.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -3042,13 +3113,16 @@
     <Content Include="Views\TinTuc\TimKiemTinTuc.cshtml" />
     <Content Include="Views\ThongTinTaiKhoan\Index.cshtml" />
     <Content Include="Views\ThongTinTaiKhoan\Edit.cshtml" />
+    <Content Include="Views\ThongTinTaiKhoan\LichSuDatPhong.cshtml" />
+    <Content Include="Views\DatPhong\HuyDatPhongSuccess.cshtml" />
+    <Content Include="Views\ThongTinTaiKhoan\HuyDatPhongSuccess.cshtml" />
+    <Content Include="Views\ThongTinTaiKhoan\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\ManagerUser\" />
     <Folder Include="Content\assets\plugins\quform\uploads\" />
-    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -3098,6 +3172,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305281416371_hotels9.resx">
       <DependentUpon>202305281416371_hotels9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305311011006_hotelllsls.resx">
+      <DependentUpon>202305311011006_hotelllsls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305311017462_hotellllslsss.resx">
+      <DependentUpon>202305311017462_hotellllslsss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

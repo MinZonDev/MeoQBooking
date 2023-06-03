@@ -9,7 +9,7 @@ using WebBooking.Models.DB;
 
 namespace WebBooking.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, nhanvien")]
     public class BookingController : Controller
     {
 

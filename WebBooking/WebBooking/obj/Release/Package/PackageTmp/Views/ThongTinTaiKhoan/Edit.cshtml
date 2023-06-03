@@ -1,0 +1,48 @@
+﻿@model WebBooking.Models.ApplicationUser
+@{
+    ViewBag.Title = "CẬP NHẬT THÔNG TIN TÀI KHOẢN";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h2>Chỉnh sửa thông tin tài khoản</h2>
+
+@using (Html.BeginForm("Edit", "ThongTinTaiKhoan", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Avatar)
+        @Html.TextBoxFor(model => model.Avatar, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Avatar)
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.UserName)
+        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.UserName)
+    </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhoneNumber)
+        @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.PhoneNumber)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Birthday)
+        @Html.TextBoxFor(model => model.Birthday, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Birthday)
+    </div>
+    <!-- Thêm các trường và validation cho các thông tin khác -->
+
+    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+}
+

@@ -1,0 +1,27 @@
+﻿@model WebBooking.Models.DB.CategoryNew
+
+@{
+    ViewBag.Title = " CHI TIẾT DANH MỤC TIN TỨC";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Chi tiết danh mục tin tức @Model.CategoryName</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên danh mục:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.CategoryId }) |
+    @Html.ActionLink("Quay về", "Index")
+</p>

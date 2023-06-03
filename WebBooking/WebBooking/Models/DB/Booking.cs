@@ -37,15 +37,16 @@
         [StringLength(12)]
         [RegularExpression(@"^[0-9]+$", ErrorMessage = "CMND/CCCD sai định dạng!")]
         public string identiyid { get; set; }
-        //[Required(ErrorMessage = "Vui lòng nhập ngày sinh!")]
-        //[Range(typeof(DateTime), "1/1/1900", "{0:dd/MM/yyyy}", ErrorMessage = "Ngày sinh phải nhỏ hơn ngày hiện tại!")]
+        [Required(ErrorMessage = "Vui lòng nhập ngày sinh!")]
         public DateTime? birthday { get; set; }
 
         public DateTime? bookingdate { get; set; }
-
+        [Required(ErrorMessage = "Vui lòng nhập số người!")]
         public int? numberpeople { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập ngày nhận phòng!")]
         [GreaterThanCurrentDate(ErrorMessage = "Ngày check-in phải lớn hơn ngày hiện tại!")]
         public DateTime? checkin { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập ngày trả phòng!")]
         [GreaterThan(nameof(checkin), ErrorMessage = "Ngày check-out phải lớn hơn ngày check-in!")]
         public DateTime? checkout { get; set; }
 
@@ -84,7 +85,6 @@
         {
             _dependentPropertyName = dependentPropertyName;
         }
-
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             var dependentProperty = validationContext.ObjectType.GetProperty(_dependentPropertyName);
@@ -103,7 +103,6 @@
                     return new ValidationResult(ErrorMessage);
                 }
             }
-
             return ValidationResult.Success;
         }
     }

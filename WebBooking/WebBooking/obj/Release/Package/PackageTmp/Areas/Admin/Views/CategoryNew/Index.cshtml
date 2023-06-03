@@ -1,0 +1,70 @@
+﻿@model PagedList.IPagedList<WebBooking.Models.DB.CategoryNew>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "DANH SÁCH DANH MỤC TIN TỨC";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>DANH MỤC TIN TỨC</h2>
+
+<div class="row m-b-30">
+    <div class="col-md-8">
+        <div class="col-md-6">
+            <form action="@Url.Action("Index", "CategoryNew")" method="get">
+                <div class="input-affix m-v-10">
+                    <i class="prefix-icon anticon anticon-search opacity-04"></i>
+                    <input id="keyword" name="searchTerm" type="text" class="form-control" placeholder="Nhập từ khóa cần tìm kiếm">
+                    <input type="submit" value="Tìm kiếm">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-4 text-right">
+        <a class="btn btn-primary" @Html.ActionLink("Thêm danh mục", "Create") @*<i class="anticon anticon-plus-circle m-r-5"></i><span>Thêm sản phẩm</span>*@</a>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Tên danh mục
+        </th>
+        <th>Hành động</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                <a class="btn btn-primary btn-tone m-r-5" @Html.ActionLink("Chi tiết", "Details", new { id = item.CategoryId })> </a>
+                <a class="btn btn-secondary btn-tone m-r-5" @Html.ActionLink("Sửa", "Edit", new { id = item.CategoryId })> </a>
+                <a class="btn btn-success btn-tone m-r-5" @Html.ActionLink("Xóa", "Delete", new { id = item.CategoryId })> </a>
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="gdlr-pagination">
+    <style>
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 2;
+            color: #ffffff;
+            cursor: default;
+            background-color: #b89f80;
+            border-color: #b89f80;
+        }
+    </style>
+    <span aria-current='page' class='page-numbers current'>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount</span>
+    <div style="text-align: right; margin-left: 695px; color: aliceblue; border-color: #b89f80 " class="pagination-container">
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions { Display = PagedListDisplayMode.IfNeeded })
+    </div>
+
+</div>

@@ -1,0 +1,23 @@
+﻿@model WebBooking.Models.DB.Booking
+
+@{
+    ViewBag.Title = "Change Booking Status";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Change Booking Status</h2>
+
+<p>Booking ID: @Model.bookingid</p>
+<p>Current Status: @Model.Status.statusname</p>
+
+@using (Html.BeginForm("ChangeBookingStatus", "Booking", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="newStatus">New Status:</label>
+        @Html.DropDownList("newStatus", (IEnumerable<SelectListItem>)ViewBag.Status, new { @class = "form-control" })
+    </div>
+
+    <input type="hidden" name="bookingId" value="@Model.bookingid" />
+
+    <button type="submit" class="btn btn-primary">Thay đổi trạng thái</button>
+}

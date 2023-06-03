@@ -1,0 +1,163 @@
+﻿@model WebBooking.Models.DB.Booking
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebBooking.Models.DB.Room room = ViewBag.ThongTinPhong;
+}
+
+<style>
+    #soNguoi{
+        width:20%;
+        height: 30px;
+    }
+    #customername{
+        background-color: white;
+    }
+    #email {
+        background-color: white;
+    }
+    #phone {
+        background-color: white;
+    }
+    #identiyid {
+        background-color: white;
+    }
+</style>
+
+<div id="gdlr-header-substitute">
+</div>
+<div class="gdlr-page-title-wrapper">
+    <div class="gdlr-page-title-overlay"></div>
+    <div class="gdlr-page-title-container container">
+        <h1 class="gdlr-page-title">Booking</h1>
+    </div>
+</div>
+<!-- is search -->
+<div class="content-wrapper">
+    <div class="gdlr-content">
+        <div class="with-sidebar-wrapper">
+            <div class="with-sidebar-container container gdlr-class-no-sidebar">
+                <div class="with-sidebar-left twelve columns">
+                    <div class="with-sidebar-content twelve columns">
+                        <div class="gdlr-item gdlr-item-start-content" id="gdlr-single-booking-content" data-ajax="https://demo.goodlayers.com/hotelmaster/wp-admin/admin-ajax.php">
+                                <form style="width:600px" class="gdlr-reservation-bar" data-action="gdlr_hotel_booking">
+                                    <div style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-bar-title">Thông Tin Đặt Phòng</div>
+                                    <div class="gdlr-reservation-bar-summary-form"></div>
+                                    <div class="gdlr-reservation-bar-room-form"></div>
+                                    <div class="gdlr-reservation-bar-date-form">
+                                        <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                            <span style="font-size: 20px " class="gdlr-reservation-field-title"><img src="@room.image" /></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                            <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Tên Phòng: @room.roomname</span>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                            <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Giá Phòng: @String.Format("{0:0,0}", room.price) / Đêm</span>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                            <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Loại Phòng: @room.Category.categoryname</span>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                            <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Số Giường: @room.bed</span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="gdlr-reservation-bar-service-form" id="gdlr-reservation-bar-service-form"></div>
+                                </form>
+                                <div style="" class="gdlr-booking-content">
+                                    <div class="gdlr-booking-process-bar" id="gdlr-booking-process-bar" data-state="1">
+                                        @using (Html.BeginForm())
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <div class="form-horizontal">
+                                                <div style="font-size: 20px; margin-top: 10px; margin-left: 32%;">Thông Tin Khách Hàng</div>
+                                                <hr />
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                @Html.HiddenFor(model => model.roomid)
+                                                @Html.HiddenFor(model => model.bookingid)
+                                                <div style="margin-top:20px; margin-left:120px" class="form-group">
+                                                    <strong>Họ Tên</strong>
+                                                    <div class="col-md-9">
+                                                        @Html.EditorFor(model => model.customername, new { htmlAttributes = new { @class = "form-control", @placeholder = "Vui lòng nhập Họ Tên" } })
+                                                        @Html.ValidationMessageFor(model => model.customername, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div style="margin-top:20px; margin-left:120px" class="form-group">
+                                                    <strong>Email</strong>
+                                                    <div class="col-md-9">
+                                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Vui lòng nhập Email" } })
+                                                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div style="margin-top: 20px; margin-left: 120px" class="form-group">
+                                                    <strong>Số Điện Thoại</strong>
+                                                    <div class="col-md-9">
+                                                        @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Vui lòng nhập số điện thoại" } })
+                                                        @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div style="margin-top: 20px; margin-left: 120px" class="form-group">
+                                                    <strong>Căn Cước Công Dân</strong>
+                                                    <div class="col-md-9">
+                                                        @Html.EditorFor(model => model.identiyid, new { htmlAttributes = new { @class = "form-control", @placeholder = "Số CMND/CCCD" } })
+                                                        @Html.ValidationMessageFor(model => model.identiyid, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div style="margin-top: 20px; margin-left: 120px" class="form-group">
+                                                    <strong>Ngày Sinh</strong>
+                                                    <div class="col-md-9">
+                                                        @Html.EditorFor(model => model.birthday, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                                                        @*@Html.TextBoxFor(model => model.birthday, "{0:dd/MM/yyyy}", new { @class = "form-control", @type = "date" })*@
+                                                        @Html.ValidationMessageFor(model => model.birthday, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div style="margin-top: 20px; margin-left: 120px" class="form-group">
+                                                    <strong>Số Người</strong>
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.numberpeople, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập số Người" } })
+                                                        @Html.ValidationMessageFor(model => model.numberpeople, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div style="margin-top: 20px; margin-left: 120px" class="form-group">
+                                                    <strong>Ngày Nhận Phòng</strong>
+                                                    <div class="col-md-10">
+                                                        @Html.TextBoxFor(model => model.checkin, new { @class = "form-control datepicker", @id = "CheckIn", @type = "date" })
+                                                        @Html.ValidationMessageFor(model => model.checkin, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div style="margin-top: 38px; margin-left: 120px" class="form-group">
+                                                    <strong>Ngày Trả Phòng</strong>
+                                                    <div class="col-md-10">
+                                                        @Html.TextBoxFor(model => model.checkout, new { @class = "form-control datepicker", @id = "CheckOut", @type = "date" })
+                                                        @Html.ValidationMessageFor(model => model.checkout, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div style="margin-top: 20px; margin-left: 120px" class="form-group">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input style="margin-left:120px" type="submit" value="Đặt Phòng" class="btn btn-default" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!-- gdlr-content -->
+    <div class="clear"></div>
+</div>
+<!-- content wrapper -->

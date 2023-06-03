@@ -1,0 +1,71 @@
+﻿@model WebBooking.Models.DB.New
+
+@{
+    ViewBag.Title = "XÓA TIN TỨC";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Bạn có chắc muốn xóa tin tức này?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Mã tin tức:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoryid)
+        </dd>
+
+        <dt>
+            Tiêu đề:
+        </dt>
+
+        <dt>
+            Hình ảnh:
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.image)" />
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            Ngày tạo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdtime)
+        </dd>
+
+        <dt>
+            Nội dung:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.content)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay về", "Index")
+        </div>
+    }
+</div>

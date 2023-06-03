@@ -7,62 +7,72 @@ using WebBooking.Models.DB;
 
 namespace WebBooking.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, nhanvien")]
     public class StatisticsController : Controller
     {
         private dbHotel db = new dbHotel();
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-        //public ActionResult GetStatistical(string fromDate, string toDate)
-        //{
-        //    var query = from b in db.Bookings
-        //                where b.bookingdate.HasValue
-        //                join r in db.Rooms on b.roomid equals r.roomid
-        //                select new
-        //                {
-        //                    CreatedDate = b.bookingdate.Value,
-        //                    Total = b.total,
-        //                    RoomPrice = r.price
-        //                };
-
-        //    if (!string.IsNullOrEmpty(fromDate))
-        //    {
-        //        DateTime startDate = DateTime.ParseExact(fromDate, "dd/MM/yyyy", null);
-        //        query = query.Where(x => x.CreatedDate >= startDate);
-        //    }
-
-        //    if (!string.IsNullOrEmpty(toDate))
-        //    {
-        //        DateTime endDate = DateTime.ParseExact(toDate, "dd/MM/yyyy", null);
-        //        query = query.Where(x => x.CreatedDate <= endDate);
-        //    }
-
-        //    var result = query.GroupBy(x => x.CreatedDate.Date).Select(x => new
-        //    {
-        //        Date = x.Key,
-        //        TotalRevenue = x.Sum(y => y.Total),
-        //        TotalProfit = x.Sum(y => y.Total - (y.RoomPrice ?? 0))
-        //    }).OrderBy(x => x.Date);
-
-        //    return Json(new { Data = result }, JsonRequestBehavior.AllowGet);
-        //}
-
-
-
         // GET: Admin/Statistics
         public ActionResult Index()
         {
-            // Tổng số lượng đơn đặt phòng
-            int totalBookings = db.Bookings.Count();
+            //// Tổng số lượng đơn đặt phòng
+            int totalBooked = db.Bookings.Count();
 
-            // Tổng doanh thu
-            decimal totalRevenue = db.Bookings.Sum(b => b.total ?? 0);
+            //// Tổng doanh thu
+            ///
+            //decimal totalRevenue = db.Bookings.Sum(b => b.total ?? 0);
+            // Tổng số lượng đơn đặt phòng có statusid bằng 4
+            int totalBookings = db.Bookings.Count(b => b.statusid == 4);
 
+            // Tổng doanh thu của các đơn đặt phòng có statusid bằng 4
+            decimal totalRevenue = db.Bookings
+                .Where(b => b.statusid == 4)
+                .Sum(b => b.total ?? 0);
+
+            // Lấy tháng và năm hiện tại
+            int currentDay = DateTime.Now.Day;
+            int currentMonth = DateTime.Now.Month;
+            int currentYear = DateTime.Now.Year;
+
+            // Tổng số lượng đơn đặt phòng trong hôm nay
+            int totalBookingToday = db.Bookings.Count(b => b.bookingdate.HasValue && b.bookingdate.Value.Day == currentDay && b.bookingdate.Value.Month == currentMonth && b.bookingdate.Value.Year == currentYear);
+
+            // Tổng doanh thu trong hôm nay
+            decimal totalRevenueToday = db.Bookings
+            .Where(b => b.statusid == 4 && b.checkout.HasValue && b.checkout.Value.Day == currentDay && b.checkout.Value.Month == currentMonth && b.checkout.Value.Year == currentYear)
+            .Sum(b => b.total ?? 0);
+
+            // Tổng số lượng đơn đặt phòng trong tháng hiện tại
+            int totalBookingThisMonth = db.Bookings.Count(b => b.bookingdate.HasValue && b.bookingdate.Value.Month == currentMonth && b.bookingdate.Value.Year == currentYear);
+
+            // Tổng doanh thu của các đơn đặt phòng có statusid bằng 4 trong tháng hiện tại
+            decimal totalRevenueThisMonth = db.Bookings
+            .Where(b => b.statusid == 4 && b.checkout.HasValue && b.checkout.Value.Month == currentMonth && b.checkout.Value.Year == currentYear)
+            .Sum(b => b.total ?? 0);
+            // Tổng số lượng đơn đặt phòng có statusid bằng 4 trong năm hiện tại
+            int totalBookingThisYear = db.Bookings.Count(b => b.bookingdate.HasValue && b.bookingdate.Value.Year == currentYear);
+
+            // Tổng doanh thu của các đơn đặt phòng có statusid bằng 4 trong năm hiện tại
+            decimal totalRevenueThisYear = db.Bookings
+            .Where(b => b.statusid == 4 && b.checkout.HasValue && b.checkout.Value.Year == currentYear)
+            .Sum(b => b.total ?? 0);
+
+            var monthlyRevenue = db.Bookings
+                .Where(b => b.statusid == 4 && b.checkin.HasValue)
+                .GroupBy(b => new { b.checkin.Value.Month, b.checkin.Value.Year })
+                .Select(g => new { Month = g.Key.Month, Year = g.Key.Year, Revenue = g.Sum(b => b.total ?? 0) })
+                .OrderBy(g => g.Year)
+                .ThenBy(g => g.Month)
+                .ToList();
+            ViewBag.MonthlyRevenue = monthlyRevenue;
+            ViewBag.TotalBooked = totalBooked;
             ViewBag.TotalBookings = totalBookings;
             ViewBag.TotalRevenue = totalRevenue;
-
+            ViewBag.TotalBookingToday = totalBookingToday;
+            ViewBag.TotalRevenueToday = totalRevenueThisMonth;
+            ViewBag.TotalBookingThisMonth = totalBookingThisMonth;
+            ViewBag.TotalRevenueThisMonth = totalRevenueThisMonth;
+            ViewBag.TotalBookingThisYear = totalBookingThisYear;
+            ViewBag.TotalRevenueThisYear = totalRevenueThisYear;
             return View();
         }
 

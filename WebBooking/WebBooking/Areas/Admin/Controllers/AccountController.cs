@@ -13,14 +13,13 @@ using WebBooking.Models.DB;
 
 namespace WebBooking.Areas.Admin.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
-
-
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationDbContext data = new ApplicationDbContext();
-
+        dbHotel db = new dbHotel();
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
@@ -52,7 +51,6 @@ namespace WebBooking.Areas.Admin.Controllers
         }
 
         private ApplicationDbContext dbContext;
-        dbHotel db = new dbHotel();
         public AccountController()
         {
             dbContext = new ApplicationDbContext();
@@ -104,7 +102,7 @@ namespace WebBooking.Areas.Admin.Controllers
 
             if (user != null && role != null)
             {
-                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(dbContext));
+                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
                 userManager.AddToRole(user.Id, role.Name);
             }
 

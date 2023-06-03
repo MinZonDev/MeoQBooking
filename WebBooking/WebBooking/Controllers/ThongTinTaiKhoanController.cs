@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity.Owin;
 using WebBooking.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using WebBooking.Models.DB;
 
 namespace WebBooking.Controllers
 {
@@ -20,7 +21,7 @@ namespace WebBooking.Controllers
         //{
         //    _userManager = userManager;
         //}
-
+        dbHotel db = new dbHotel();
         public ActionResult Index()
         {
             // Lấy thông tin người dùng hiện tại
@@ -73,6 +74,52 @@ namespace WebBooking.Controllers
 
             return View(model);
         }
+        public ActionResult LichSuDatPhong()
+        {
+            // Lấy User ID của người dùng hiện tại
+            string userId = User.Identity.GetUserId();
+
+            // Truy vấn danh sách đơn đặt phòng của User ID đó từ cơ sở dữ liệu
+            var bookings = db.Bookings.Where(b => b.userid == userId).ToList();
+
+            // Truyền danh sách đơn đặt phòng vào View để hiển thị
+            return View(bookings);
+        }
+        public ActionResult HuyDatPhong(int id)
+        {
+            // Tìm đơn đặt phòng dựa trên ID
+            var booking = db.Bookings.Find(id);
+
+            if (booking == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Kiểm tra trạng thái hiện tại của đơn đặt phòng
+            if (booking.statusid != 1) // Kiểm tra trạng thái đã được xác nhận
+            {
+                TempData["ErrorMessage"] = "Không thể hủy đặt phòng. Đơn đặt phòng không ở trạng thái chờ xác nhận.";
+                //ViewBag.Script = "<script>alert('Đã hủy đặt phòng thành công.');</script>";
+                /*return RedirectToAction("Error");*/ // Chuyển hướng đến trang lỗi và hiển thị thông báo
+            }
+
+            // Cập nhật trạng thái thành 5 (hủy đặt phòng)
+            booking.statusid = 5;
+
+            // Lưu thay đổi vào cơ sở dữ liệu
+            db.SaveChanges();
+
+            TempData["SuccessMessage"] = "Đã hủy đặt phòng thành công.";
+            return RedirectToAction("LichSuDatPhong"); // Chuyển hướng đến trang thông báo hủy đặt phòng thành công
+        }
+
+        public ActionResult HuyDatPhongSuccess()
+        {
+            ViewBag.SuccessMessage = TempData["SuccessMessage"] as string;
+            return View();
+        }
+
+
 
     }
 }

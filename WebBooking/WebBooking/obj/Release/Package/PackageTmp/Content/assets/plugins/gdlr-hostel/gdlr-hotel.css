@@ -1,0 +1,419 @@
+.gdlr-room-thumbnail{ overflow: hidden; }
+.gdlr-room-thumbnail > a:hover{ opacity: 0.8; }
+
+.single .gdlr-room-thumbnail { font-size: 0px; text-align: center; margin-bottom: 25px; overflow: hidden;
+	border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+.single .gdlr-item-start-content{ padding-bottom: 50px; }
+.single .gdlr-room-title-wrapper{ padding-bottom: 5px; margin-bottom: 25px;
+    border-bottom-width: 2px; border-style: solid; line-height: 20px; }
+.single .gdlr-room-title { font-weight: bold; font-size: 17px; float: left;
+	margin-bottom: 0px; text-transform: uppercase; letter-spacing: 2px;  }
+.single .gdlr-room-price { float: right; }
+.single .gdlr-hotel-room-info{ margin-bottom: 20px; }	
+.single .gdlr-room-info { width: 44%; float: left; font-size: 13px; margin-bottom: 3px;
+	padding: 16px 20px; margin-right: 3px; }
+.single .gdlr-room-info i { margin-right: 15px; }
+.single .gdlr-room-info .gdlr-head { font-weight: bold; margin-right: 10px; }
+.single .gdlr-room-info .gdlr-tail { font-style: italic; }
+.single .gdlr-room-price .gdlr-head { font-size: 15px; margin-right: 10px; font-style: italic; }
+.single .gdlr-room-price .gdlr-tail { font-size: 19px; }
+.single .gdlr-reservation-bar { float: right; margin-right: 0px; margin-left: 30px; }
+.single .gdlr-room-main-content { overflow: hidden; }
+
+.gdlr-flex-thumbnail-control { margin-left: 0; margin-top: 10px; text-align: left; }
+.gdlr-flex-thumbnail-control li { display: inline-block; max-width: 55px; margin-right: 10px; cursor: pointer; overflow: hidden; 
+	border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+
+/* medium room */
+.gdlr-medium-room.gdlr-item { margin-bottom: 70px; }
+.gdlr-medium-room .flex-control-nav-wrapper { display: none; }
+.gdlr-medium-room .gdlr-room-thumbnail { float: left; max-width: 32%; margin-right: 30px; }
+.gdlr-medium-room .gdlr-room-title { font-size: 17px; margin-bottom: 0px; text-transform: uppercase; font-weight: bold; letter-spacing: 2px; }
+.gdlr-medium-room .gdlr-room-content-wrapper{ overflow: hidden; }
+.gdlr-medium-room .gdlr-hotel-room-info { margin-bottom: 25px; margin-top: 25px;
+	border-width: 1px; border-style: solid; padding: 10px 20px; }
+.gdlr-medium-room .gdlr-room-info { float: left; font-size: 13px; margin-right: 10px; }
+.gdlr-medium-room .gdlr-room-info i { display: none; }
+.gdlr-medium-room .gdlr-room-info:before{ content: "/"; margin: 0px 10px 0px 0px; }
+.gdlr-medium-room .gdlr-room-info:first-child:before{ display: none; }
+.gdlr-medium-room .gdlr-room-info .gdlr-head { font-weight: bold; margin-right: 10px; }
+.gdlr-medium-room .gdlr-room-info .gdlr-tail { font-style: italic; }
+.gdlr-medium-room .gdlr-button{ float: left; margin-top: 24px; margin-bottom: 0px; }
+.gdlr-medium-room .gdlr-button i{ margin-left: 12px; margin-right: 0px; }
+.gdlr-medium-room .gdlr-room-price { float: right; margin-top: 30px; text-align: right; }
+.gdlr-medium-room .gdlr-room-price .gdlr-head { font-size: 15px; margin-right: 10px; font-style: italic; }
+.gdlr-medium-room .gdlr-room-price .gdlr-tail { font-size: 19px; }
+.gdlr-medium-room .gdlr-price-break-down { font-size: 12px; text-align: right; position: relative; cursor: pointer; }
+
+.gdlr-booking-room-wrapper{ margin: 0px -15px; padding-bottom: 1px; }
+.gdlr-booking-room-wrapper .gdlr-medium-room .gdlr-room-price { margin-top: 22px; }
+
+.gdlr-booking-room-wrapper .gdlr-room-hotel-branches .gdlr-separator:first-child { display: none;}
+.gdlr-booking-room-wrapper .gdlr-room-hotel-branches { font-size: 13px; margin-top: 4px; margin-bottom: -5px;  }
+
+.gdlr-booking-content-inner .gdlr-pagination{ margin: 0px 0px 20px; }
+
+/* classic room */
+.gdlr-item-no-space .gdlr-classic-room .gdlr-room-title,
+.gdlr-item-no-space .gdlr-classic-room .gdlr-hotel-room-info,
+.gdlr-item-no-space .gdlr-classic-room .gdlr-button{ margin-left: 20px; margin-right: 20px; }
+.gdlr-classic-room.gdlr-item{ margin-bottom: 50px; }
+.gdlr-classic-room .flex-control-nav-wrapper { display: none; }
+.gdlr-classic-room .gdlr-room-thumbnail { margin-bottom: 25px; }
+.gdlr-classic-room .gdlr-room-title { font-size: 18px; text-transform: uppercase; font-weight: bold;
+    letter-spacing: 1px; padding-bottom: 12px; border-bottom-width: 2px; border-style: solid; }
+.gdlr-classic-room .gdlr-room-info { margin-bottom: 10px; }
+.gdlr-classic-room .gdlr-room-info { font-size: 13px; margin-bottom: 8px; }
+.gdlr-classic-room .gdlr-room-info i { margin-right: 15px; }
+.gdlr-classic-room .gdlr-room-info .gdlr-head { font-weight: bold; margin-right: 10px; }
+.gdlr-classic-room .gdlr-room-info .gdlr-tail { font-style: italic; }
+.gdlr-classic-room .gdlr-room-price{ font-size: 17px; margin-top: 15px; }
+.gdlr-classic-room .gdlr-room-price .gdlr-head { margin-right: 8px; font-style: italic; }
+.gdlr-classic-room .gdlr-button{ margin-top: 22px; margin-bottom: 0px; }
+.gdlr-classic-room .gdlr-button i{ margin-left: 12px; margin-right: 0px; }
+
+.room-item-wrapper .four.columns .gdlr-classic-room .gdlr-room-title { font-size: 16px; }
+.room-item-wrapper .three.columns .gdlr-classic-room .gdlr-room-title { font-size: 15px; }
+
+.gdlr-room-carousel-item .gdlr-classic-room:first-child { margin-left: 0px; }
+
+/* modern room */
+.gdlr-item-no-space .gdlr-modern-room .gdlr-room-detail,
+.gdlr-item-no-space .gdlr-modern-room .gdlr-room-title { margin-left: 20px; margin-right: 20px; }
+.gdlr-modern-room.gdlr-item{ margin-bottom: 40px; }
+.gdlr-modern-room .flex-control-nav-wrapper { display: none; }
+.gdlr-modern-room .gdlr-room-thumbnail { margin-bottom: 22px; }
+.gdlr-modern-room .gdlr-room-title { font-size: 14px; text-transform: uppercase; 
+	font-weight: bold; letter-spacing: 1px; margin-bottom: 6px; }
+.gdlr-modern-room .gdlr-room-detail{ font-size: 12px; letter-spacing: 1px; font-style: italic; }
+.gdlr-modern-room .gdlr-room-detail i{ margin-left: 14px; margin-right: 0px; }
+
+.gdlr-room-carousel-item .gdlr-modern-room:first-child { margin-left: 0px; }
+
+/* booking */	 
+.single-booking .gdlr-item-start-content{ padding-bottom: 70px; margin-bottom: 0px; }
+
+.gdlr-booking-content{ overflow: hidden; }
+.gdlr-booking-content-wrapper{ margin-top: 30px; }
+.gdlr-booking-content-wrapper.gdlr-loading{ background: url('images/now-loading.gif') no-repeat center; }
+.gdlr-booking-content-inner{ min-height: 100px; }
+
+.gdlr-booking-process-bar .gdlr-active { color: #fff; }
+.gdlr-booking-process-bar .gdlr-booking-process{ font-size: 13px; font-weight: bold; display: inline-block; 
+    padding: 15px 46px 15px 28px; position: relative; line-height: 20px; 
+	transition: color 300ms; -moz-transition: color 300ms; 
+	-o-transition: color 300ms; -webkit-transition: color 300ms; }
+.gdlr-booking-process-bar .gdlr-booking-process:last-child{ padding-right: 28px; }
+.gdlr-booking-process-bar .gdlr-booking-process:before,
+.gdlr-booking-process-bar .gdlr-booking-process:after{ content: ""; position: absolute; width: 0; height: 0;
+  border-style: solid; border-color: transparent; border-right: 0; }
+.gdlr-booking-process-bar .gdlr-booking-process:before{ border-width: 25px; top: 0px; right: 0px; }
+.gdlr-booking-process-bar .gdlr-booking-process:after{ border-width: 25px; top: 0px; right: 1px; }	
+.gdlr-booking-process-bar .gdlr-booking-process:last-child:before,
+.gdlr-booking-process-bar .gdlr-booking-process:last-child:after{ display: none; }
+
+/* reservation room */
+.gdlr-reservation-room{ margin-top: 15px; }
+.gdlr-reservation-room:first-child{ margin-top: 0px; }
+.gdlr-reservation-room i { display: none; font-size: 23px; margin-right: 18px; margin-top: 10px; float: left; }
+.gdlr-reservation-room input{ display: none; }
+.gdlr-reservation-room .gdlr-reservation-room-content { overflow: hidden; font-size: 13px; line-height: 1.7; }
+.gdlr-reservation-room .gdlr-reservation-room-title{ font-weight: bold; }
+.gdlr-reservation-room .gdlr-reservation-room-info { font-style: italic; margin-left: 60px; }
+.gdlr-reservation-room .gdlr-reservation-room-info span{ margin-right: 12px; }
+.gdlr-reservation-room .gdlr-reservation-change-room{ float: right; margin-right: 20px; font-style: italic; }
+
+.gdlr-reservation-room.gdlr-active i{ display: block; }
+.gdlr-reservation-room.gdlr-active .gdlr-reservation-room-info{ margin-left: 0px; }
+
+.gdlr-single-hostel-booking .gdlr-reservation-room i{ margin-top: 0px; }
+.gdlr-single-hostel-booking .gdlr-reservation-room .gdlr-reservation-change-room{ float: left; }
+
+/* reservation bar */
+.gdlr-reservation-bar{ width: 320px; float: left; margin-right: 30px; overflow: hidden; 
+	border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+.gdlr-reservation-bar .gdlr-reservation-bar-title{ font-size: 16px; letter-spacing: 1px; text-align: center;
+	padding: 15px 15px 10px; border-bottom-width: 2px; border-bottom-style: solid; }
+.gdlr-reservation-bar .gdlr-reservation-bar-date-form{ padding: 20px 0px 30px 20px; }
+.gdlr-reservation-bar .gdlr-reservation-bar-room-form{ padding: 20px 0px 20px 20px; display: none; }
+.gdlr-reservation-bar .gdlr-reservation-bar-button{ margin-bottom: 0px; margin-top: 10px; float: left; }
+.gdlr-reservation-bar .gdlr-reservation-field{ margin-bottom: 20px; float: left; margin-right: 20px; }
+.gdlr-reservation-bar .gdlr-reservation-field-title{ font-size: 12px; letter-spacing: 1px; display: block; margin-bottom: 8px; }
+.gdlr-reservation-bar .gdlr-reservation-people-amount-wrapper { overflow: hidden; }
+.gdlr-reservation-bar .gdlr-reservation-people-amount-hide { display: none; }
+
+.gdlr-reservation-people-title { width: 80px; float: left; margin-top: 35px; text-align: right; margin-right: 20px; }
+
+.gdlr-reservation-bar .gdlr-reservation-field.gdlr-resv-time{ float: none; margin-right: 0px; }
+.gdlr-reservation-field.gdlr-resv-time .gdlr-combobox-wrapper{ display: inline-block; vertical-align: middle; }
+.gdlr-reservation-field.gdlr-resv-time .gdlr-reservation-time-title{ display: inline-block; line-height: 36px; font-size: 12px; margin-right: 12px; }
+.gdlr-reservation-field.gdlr-resv-time .gdlr-reservation-time-sep{ display: inline-block; line-height: 36px; font-size: 12px; margin: 0px 10px 0px 15px; }
+
+/* datepicker */
+.gdlr-reservation-bar input.gdlr-datepicker { font-size: 13px; padding: 10px 15px; height: 16px; width: 123px; cursor: pointer;
+	  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
+.gdlr-reservation-bar .gdlr-datepicker-wrapper:after { font-family: fontAwesome; content: "\f073"; 
+	position: absolute; right: 10px; top: 6px; pointer-events: none; cursor: pointer; }
+.gdlr-reservation-bar .gdlr-datepicker-wrapper { display: inline-block; position: relative; }
+
+/* combobox */
+.gdlr-reservation-bar .gdlr-combobox-wrapper{ width: 80px; overflow: hidden; position: relative;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
+.gdlr-reservation-bar .gdlr-combobox-wrapper:after{ font-family: fontAwesome; content: "\f0dd"; 
+	position: absolute; right: 10px; top: 4px; pointer-events: none; cursor: pointer; }
+.gdlr-reservation-bar .gdlr-combobox-wrapper select{ background: transparent; border: none;
+  font-size: 13px; height: 36px; padding-left: 12px; width: 108px; -webkit-appearance: none; }
+.gdlr-reservation-bar .gdlr-combobox-wrapper select:focus { outline: none; }
+
+.gdlr-reservation-bar .gdlr-resv-branches-combobox .gdlr-combobox-wrapper{ width: 253px; }
+.gdlr-reservation-bar .gdlr-resv-branches-combobox .gdlr-combobox-wrapper select{ width: 281px; }
+
+/* hotel availability */
+.gdlr-hotel-availability .gdlr-resv-datepicker { float: left; width: 24%; }
+.gdlr-hotel-availability .gdlr-resv-combobox { float: left; width: 12%; }
+.gdlr-hotel-availability.gdlr-hostel .gdlr-resv-datepicker{ width: 26%; }
+.gdlr-hotel-availability.gdlr-hostel .gdlr-resv-combobox{ width: 14%; }
+.gdlr-hotel-availability .gdlr-hotel-availability-submit{ overflow: hidden; }
+.gdlr-hotel-availability .gdlr-hotel-availability-submit input[type="submit"]{ line-height: 19px; width: 100%; 
+	padding-left: 0px; padding-right: 0px; margin: 32px 0px 0px; }
+.gdlr-hotel-availability .gdlr-reservation-field span { display: block; font-size: 14px; line-height: 20px; margin-bottom: 12px; }
+
+.gdlr-hotel-availability input.gdlr-datepicker { font-size: 13px; padding: 13px 15px; height: 16px; width: 100%; cursor: pointer; }
+.gdlr-hotel-availability .gdlr-datepicker-wrapper:after { font-family: fontAwesome; content: "\f073"; 
+	position: absolute; right: 15px; top: 11px; pointer-events: none; cursor: pointer; }
+.gdlr-hotel-availability .gdlr-datepicker-wrapper { margin-right: 20px; padding-right: 30px; position: relative; }
+
+.gdlr-hotel-availability .gdlr-combobox-wrapper{ margin-right: 20px; overflow: hidden; position: relative; }
+.gdlr-hotel-availability .gdlr-combobox-wrapper:after{ font-family: fontAwesome; content: "\f0dd"; 
+	position: absolute; right: 15px; top: 8px; pointer-events: none; cursor: pointer; }
+.gdlr-hotel-availability .gdlr-combobox-wrapper select{ background: transparent; border: none;
+  font-size: 13px; height: 42px; padding-left: 12px; width: 130%; -webkit-appearance: none; }
+.gdlr-hotel-availability .gdlr-combobox-wrapper select:focus { outline: none; }
+
+.gdlr-hotel-branches-enable .gdlr-hotel-availability .gdlr-resv-branches-combobox{ float: left; width: 25%; }
+.gdlr-hotel-branches-enable .gdlr-hotel-availability .gdlr-resv-datepicker { float: left; width: 15%; }
+.gdlr-hotel-branches-enable .gdlr-hotel-availability .gdlr-resv-combobox { float: left; width: 8%; }
+
+.gdlr-hotel-branches-enable.gdlr-hotel-client-disable .gdlr-hotel-availability .gdlr-resv-branches-combobox{ float: left; width: 25%; }
+.gdlr-hotel-branches-enable.gdlr-hotel-client-disable .gdlr-hotel-availability .gdlr-resv-datepicker { float: left; width: 20%; }
+.gdlr-hotel-branches-enable.gdlr-hotel-client-disable .gdlr-hotel-availability .gdlr-resv-combobox { float: left; width: 10%; }
+
+/* room category */
+.gdlr-room-category-item.gdlr-item{ margin-bottom: 23px; }
+.gdlr-room-category-item .gdlr-hotel-branches-title { margin-bottom: 0px; font-size: 13px; 
+	font-weight: bold; text-transform: uppercase; letter-spacing: 2.3px; text-align: center; }
+.gdlr-room-category-item .gdlr-room-category-thumbnail { line-height: 0; margin-bottom: 22px; 
+	overflow: hidden; position: relative; }
+.gdlr-room-category-thumbnail-overlay { position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; 
+	opacity: 0; filter: alpha(opacity=0); }
+.gdlr-room-category-thumbnail-overlay-icon { line-height: 26px; font-size: 26px; opacity: 0; filter: alpha(opacity=0);
+    top: 50%; left: 50%; position: absolute; margin-left: -13px; margin-top: -13px; }
+.gdlr-room-category-thumbnail-overlay-icon i{ margin-right: 0px; }
+	
+/* price summary */
+.gdlr-reservation-bar .gdlr-reservation-bar-summary-form{ display: none; }
+.gdlr-reservation-bar .gdlr-price-summary-wrapper { padding: 30px 20px; }
+.gdlr-reservation-bar .gdlr-price-summary-head { font-size: 16px; margin-bottom: 25px; }
+.gdlr-reservation-bar .gdlr-price-room-summary { font-size: 13px; font-style: italic; margin-bottom: 16px; }
+.gdlr-reservation-bar .gdlr-price-room-summary-title { font-weight: bold; }
+.gdlr-reservation-bar .gdlr-price-room-summary-price { float: right; margin-right: 0px; }
+.gdlr-reservation-bar .gdlr-price-room-summary-info{ margin-left: 55px; }
+.gdlr-reservation-bar .gdlr-price-room-summary-info span { margin-right: 12px; }
+.gdlr-price-summary-wrapper .gdlr-edit-booking-button { margin-bottom: 0px; display: block; 
+	text-align: center; margin-top: 40px; }
+	
+.gdlr-price-summary-hotel-branches{
+    font-size: 19px; padding: 7px 0px; text-align: center; margin-top: -9px;
+	font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }	
+	
+.gdlr-price-summary-vat { padding-top: 20px; margin-top: 29px; 
+	font-size: 13px; font-style: italic; border-top-width: 1px; border-top-style: solid;}
+.gdlr-price-summary-vat .gdlr-head{ float: left; }
+.gdlr-price-summary-vat .gdlr-tail{ float: right; }
+.gdlr-price-summary-vat .gdlr-price-summary-vat-discount,
+.gdlr-price-summary-vat .gdlr-price-summary-vat-total{ margin-bottom: 8px; }
+.gdlr-price-summary-grand-total{ font-size: 18px; font-weight: bold; 
+    padding-top: 20px; margin-top: 20px; border-top-width: 1px; border-top-style: solid; }
+.gdlr-price-summary-grand-total .gdlr-tail{ float: right;}
+
+.gdlr-price-deposit-wrapper{ margin-top: 26px; }
+.gdlr-price-deposit-inner-wrapper { position: relative; display: none; margin-top: 16px; }
+.gdlr-price-deposit-wrapper .gdlr-price-deposit-title { font-size: 18px; font-style: italic; }
+.gdlr-price-deposit-wrapper .gdlr-price-deposit-caption { font-size: 12px; }
+.gdlr-price-deposit-wrapper .gdlr-price-deposit-amount { font-size: 25px; 
+	position: absolute; right: 0px; top: 4px; }
+.gdlr-price-deposit-wrapper .gdlr-price-deposit-input { font-size: 13px; font-style: italic; }
+.gdlr-price-deposit-wrapper .gdlr-price-deposit-input input { margin: 0px 9px 0px 0px; }
+.gdlr-price-deposit-wrapper .gdlr-price-deposit-input span { margin-right: 20px; }
+
+.gdlr-price-deposit-input .gdlr-radio-input { border: 3px solid #ffffff; display: inline-block;
+    width: 6px; height: 6px; vertical-align: baseline; margin-right: 10px; }
+.gdlr-price-deposit-input .gdlr-radio-input input[type="radio"] { opacity: 0; position: absolute; filter: alpha(opacity=0); }
+.gdlr-price-deposit-input .gdlr-active .gdlr-radio-input { background: transparent; }
+
+.gdlr-price-summary-grand-total-wrapper-2 .gdlr-pay-on-arrival { padding-top: 22px; margin-top: 20px;
+    border-top-width: 1px; border-top-style: solid; }
+.gdlr-price-summary-grand-total-wrapper-2 .gdlr-pay-on-arrival .gdlr-head { font-size: 20px; line-height: 25px; }
+.gdlr-price-summary-grand-total-wrapper-2 .gdlr-pay-on-arrival .gdlr-tail { font-size: 22px; float: right; line-height: 25px; }
+.gdlr-price-summary-grand-total-wrapper-2 .gdlr-price-deposit-wrapper { margin-top: 0px; }
+.gdlr-price-summary-grand-total-wrapper-2 .gdlr-price-deposit-inner-wrapper { display: block; }
+.gdlr-price-summary-grand-total-wrapper-2 .gdlr-price-deposit-wrapper .gdlr-price-deposit-title,
+.gdlr-price-summary-grand-total-wrapper-2 .gdlr-price-summary-grand-total .gdlr-head { font-size: 16px; font-weight: normal; }  
+.gdlr-price-summary-grand-total-wrapper-2 .gdlr-price-deposit-wrapper .gdlr-price-deposit-amount,
+.gdlr-price-summary-grand-total-wrapper-2 .gdlr-price-summary-grand-total .gdlr-tail { font-size: 18px; font-weight: normal; }
+
+/* room selection complete */
+.gdlr-room-selection-complete { text-align: center; padding: 40px; }
+.gdlr-room-selection-complete .gdlr-button { margin: 0px; }
+.gdlr-room-selection-complete .gdlr-room-selection-title {
+    font-size: 20px; font-style: italic; font-weight: bold; margin-bottom: 9px; }
+.gdlr-room-selection-complete .gdlr-room-selection-caption { font-size: 12px; padding-bottom: 35px; }
+.gdlr-room-selection-complete .gdlr-room-selection-divider{ margin-bottom: 28px; border-bottom-width: 1px; border-bottom-style: solid; }
+
+/* reservation complete */	
+.gdlr-booking-complete { padding: 40px; margin-bottom: 30px; }
+.gdlr-booking-complete .gdlr-button { margin: 0px; }
+.gdlr-booking-complete .gdlr-booking-complete-title {
+    font-size: 17px; font-weight: bold; margin-bottom: 12px; }
+.gdlr-booking-complete .gdlr-booking-complete-caption { font-size: 13px; }
+.gdlr-booking-complete .gdlr-booking-complete-additional { font-size: 13px; margin-top: 20px; }
+	
+.gdlr-booking-failed { padding: 40px; margin-bottom: 30px; }
+.gdlr-booking-failed .gdlr-button { margin: 0px; }
+.gdlr-booking-failed .gdlr-booking-failed-title {
+    font-size: 17px; font-weight: bold; margin-bottom: 12px; }
+.gdlr-booking-failed .gdlr-booking-failed-caption span{ margin-right: 10px; }	
+
+/* booking service */
+.gdlr-booking-service-head { font-weight: bold; margin-bottom: 38px; display: block; }
+.gdlr-room-service-title { font-size: 13px; font-weight: bold; font-style: italic; }
+.gdlr-booking-service-wrapper { text-align: left; padding: 20px 0px 40px; max-width: 500px; margin: 0px auto; }
+.gdlr-room-service-option { margin-bottom: 14px; }
+.gdlr-room-service-checkbox.gdlr-active{ background-color: #484848; }
+.gdlr-room-service-checkbox { margin-right: 15px; background-color: #d5d5d5; border-color: #d5d5d5; cursor: pointer;
+	border-width: 3px; border-style: solid; width: 6px; height: 6px; overflow: hidden; display: inline-block; vertical-align: middle;}
+.gdlr-room-service-checkbox input { visibility: hidden; }
+.gdlr-room-service-unit { font-size: 15px; font-style: italic; float: right; }	
+.gdlr-room-service-unit .sep { margin: 0px 3px; }
+.gdlr-room-service-option input[type="text"] { background-color: #fff; border: 1px solid #e5e5e5; color: #828282;
+    width: 28px; text-align: center; height: 12px; margin: 0px 14px; }
+
+.gdlr-service-price-summary { padding-top: 20px; margin-top: 29px; 
+	font-size: 13px; font-style: italic; border-top-width: 1px; border-top-style: solid; }
+.gdlr-service-price-summary-head{ font-size: 16px; margin-bottom: 15px; font-style: normal; padding-top: 5px; }
+.gdlr-service-price-summary-item { margin-bottom: 8px; }
+.gdlr-service-price-summary .gdlr-head{ float: left; }
+.gdlr-service-price-summary .gdlr-head .gdlr-sep { margin: 0px 8px; }
+.gdlr-service-price-summary .gdlr-tail{ float: right; }
+
+/* booking contact form */	
+.gdlr-booking-contact-form span { font-size: 13px; display: block; font-style: italic; margin-bottom: 7px; }
+.gdlr-booking-contact-form input[type="text"],
+.gdlr-booking-contact-form input[type="email"]{ width: 94%; padding: 13px 3%; }
+.gdlr-booking-contact-form textarea { width: 94%; height: 80px; padding: 13px 3%; }
+.gdlr-booking-contact-form .gdlr-form-half-left { float: left; width: 48%; margin-right: 2%; }
+.gdlr-booking-contact-form .gdlr-form-half-right { float: left; width: 48%; margin-left: 2%; }
+.gdlr-booking-contact-form .gdlr-form-coupon { float: right; position: relative; }
+.gdlr-booking-contact-form .gdlr-form-coupon input[type="text"]{ width: auto; padding: 10px 18px; }
+.gdlr-booking-contact-form .gdlr-form-coupon span { display: inline; margin-right: 20px; }
+.gdlr-booking-contact-form .gdlr-form-coupon .gdlr-coupon-loading{ display: inline-block; width: 20px; height: 20px; 
+	background-image: url('images/now-loading.gif'); background-repeat: no-repeat; background-size: cover;
+	vertical-align: text-top; }
+.gdlr-booking-contact-form .gdlr-form-coupon .gdlr-coupon-message{ position: absolute; 
+	right: 0px; top: 40px; margin-right: 0px; font-size: 11px; }
+.gdlr-booking-contact-form .gdlr-booking-contact-submit{ margin: 25px 0px 0px; 
+	padding: 18px 0px 16px; display: block; text-align: center; font-size: 14px; }
+.gdlr-booking-contact-form .gdlr-booking-contact-or { font-size: 23px; margin: 20px 0px;
+	text-align: center; position: relative; font-style: italic; }
+.gdlr-booking-contact-form .gdlr-booking-contact-or-divider { width: 40%;
+	position: absolute; top: 50%; border-top-width: 1px; border-top-style: solid; }
+.gdlr-booking-contact-form .gdlr-booking-contact-or-divider.gdlr-left{ left: 0px; }
+.gdlr-booking-contact-form .gdlr-booking-contact-or-divider.gdlr-right{ right: 0px; }
+	
+.gdlr-booking-contact-form .gdlr-payment-method{ text-align: center; }	
+.gdlr-booking-contact-form .gdlr-payment-method label{ display: inline-block; margin-left: 15px; margin-bottom: 0px; }	
+.gdlr-booking-contact-form .gdlr-payment-method label:first-child{ margin-left: 0px; }
+.gdlr-booking-contact-form .gdlr-payment-method input[type="radio"]{ display: none; }	
+.gdlr-booking-contact-form .gdlr-payment-method label img{ border-width: 2px; 
+	border-style: solid; border-color: #ffffff; cursor: pointer; display: block;
+	transition: border-color 100ms; -moz-transition: border-color 100ms;
+	-o-transition: border-color 100ms; -webkit-transition: border-color 100ms; }
+.gdlr-booking-contact-form .gdlr-booking-payment-submit{ margin: 25px 0px 0px; 
+	padding: 18px 0px 16px; display: block; text-align: center; font-size: 14px; }	
+.gdlr-booking-contact-form .gdlr-error-message { padding: 13px 20px; font-size: 13px; 
+	color:#ffffff; background-color:#d15e5e; display: none; }
+	
+/* price breakdown */
+.price-breakdown-wrapper { position: fixed; top: 50%; left: 50%; z-index: 9999; 
+	margin-left: -241px; margin-top: -200px; display: none; }
+.price-breakdown-wrapper .price-breakdown-close { width: 36px; height: 36px;
+	cursor: pointer; position: absolute; right: 0; top: -36px; 
+	background: url('images/price-breakdown-close.png') center no-repeat; }
+.price-breakdown-wrapper .price-breakdown-content { padding: 20px 30px 16px; width: 420px;
+    border-width: 1px; border-style: solid; cursor: auto; }
+.price-breakdown-wrapper .price-breakdown-info{ overflow: hidden; display: block; margin-bottom: 10px; }
+.price-breakdown-wrapper .price-breakdown-info .gdlr-head{ float: left; font-size: 14px; }
+.price-breakdown-wrapper .price-breakdown-info .gdlr-head span{ font-size: 12px; margin-left: 18px; font-weight: normal;  }
+.price-breakdown-wrapper .price-breakdown-info .gdlr-tail{ float: right; font-size: 18px; line-height: 23px; font-style: italic; }
+.price-breakdown-wrapper .price-breakdown-total{ display: block; overflow: hidden; padding-top: 16px; 
+    margin-top: 30px; border-top-width: 1px; border-top-style: solid; }
+.price-breakdown-wrapper .price-breakdown-total .gdlr-head{ font-size: 18px; float: left; font-weight: bold; font-style: italic; }
+.price-breakdown-wrapper .price-breakdown-total .gdlr-head span{ font-size: 12px; margin-left: 10px; font-weight: normal;  }
+.price-breakdown-wrapper .price-breakdown-total .gdlr-tail{ float: right; font-size: 18px; font-style: italic; }
+	
+/* payment form */	
+.gdlr-payment-form label { display: block; margin-bottom: 10px; }
+.gdlr-payment-form input[type="text"]{ padding: 10px 15px; } 
+.gdlr-payment-form input[type="submit"] { margin: 20px 0px 0px; }
+.gdlr-payment-form .gdlr-separator { margin: 0px 7px; }
+.gdlr-payment-form .gdlr-form-loading { display: none; background: #e2872e; color: #fff; padding: 8px 15px; text-align: center; }
+.gdlr-payment-form .gdlr-form-notice.success { padding: 8px 15px; background: #99d15e; color: #fff; }
+.gdlr-payment-form .gdlr-form-notice.failed { padding: 8px 15px; background: #d15e5e; color: #fff; }
+.gdlr-payment-form .gdlr-form-error { display: none; padding: 8px 15px; background: #d15e5e; color: #fff; }
+	
+/* jquery ui datepicker */
+.ui-datepicker.ui-widget{ display: none; }
+.gdlr-datepicker-range-wrapper .ui-datepicker{ padding: 0px; width: auto !important; }
+.gdlr-datepicker-range-wrapper .ui-datepicker-group{ display: inline-block; width: 50%; padding: 40px 0px; }
+.gdlr-datepicker-range-wrapper .ui-datepicker-group .ui-datepicker-header{ margin: 0px auto; width: 259px; }
+.gdlr-datepicker-range-wrapper .ui-datepicker-group-first{
+	border-right-width: 1px;  border-right-style: solid; margin-left: -1px; }
+.gdlr-datepicker-range-wrapper .ui-datepicker-group-first .ui-datepicker-title{ margin: 0px; font-weight: bold; text-align: right; }
+.gdlr-datepicker-range-wrapper .ui-datepicker-group-last .ui-datepicker-title{ margin: 0px; font-weight: bold; text-align: left; }
+.gdlr-datepicker-range-wrapper .ui-datepicker-row-break{ display: block; clear: both; visibility: hidden; line-height: 0; height: 0; zoom: 1; }
+
+.ui-datepicker{ padding: 20px; text-align: center; }
+.ui-datepicker .ui-datepicker-header { position: relative; padding: .2em 0; }
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next { cursor: pointer; display: block; position: absolute; font-family: fontAwesome; 
+	padding: 4px; line-height: 20px; width: 20px; height: 20px; text-align: center; }
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span{ display: none; }
+.ui-datepicker .ui-datepicker-prev { left: 0px; }
+.ui-datepicker .ui-datepicker-prev:before{ content: "\f104"; }
+.ui-datepicker .ui-datepicker-next { right: 0px; }
+.ui-datepicker .ui-datepicker-next:after{ content: "\f105"; }
+.ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+.ui-datepicker .ui-datepicker-title select { font-size: 1em; margin: 1px 0; }
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year { width: 45%; }
+.ui-datepicker table { width: 259px; border-collapse: collapse; margin: 0px auto; }
+.ui-datepicker th { font-weight: normal; background: transparent; font-size: 14px; padding: 8px 0px; }
+.ui-datepicker td { border: 0; padding: 1px; }
+.ui-datepicker td span,
+.ui-datepicker td a { display: block; text-decoration: none; 
+  width: 29px; height: 29px; padding: 3px; line-height: 29px; }
+.ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; 
+	padding: 0 .2em; border-left: 0; border-right: 0; border-bottom: 0; }
+.ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em .2em .4em;
+	cursor: pointer; padding: .2em .6em .3em .6em; width: auto; overflow: visible; }
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float: left; }
+
+.gdlr-booking-process-bar { overflow: hidden; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+.price-breakdown-wrapper .price-breakdown-close { background-color: #363636; }
+
+#please-select-branches { padding-top: 11px; font-size: 12px; color: #F93535; display: none; }
+.gdlr-reservation-bar #please-select-branches { color: #fff; }
+
+.gdlr-form-term-and-agreement input{ margin-right: 10px; }
+.gdlr-form-term-and-agreement{ font-style: italic; text-align: center; margin-bottom: 30px; padding-top: 15px; }

@@ -1,0 +1,173 @@
+﻿@model WebBooking.Models.DB.Room
+
+@{
+    ViewBag.Title = "CẬP NHẬT THÔNG TIN PHÒNG";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @*<h4>Phòng: @Model.roomname</h4>
+        <hr />*@
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.roomid)
+
+    <div class="form-group">
+        <strong>Loại phòng:</strong>
+        <div class="col-md-10">
+            @Html.DropDownList("categoryid", new SelectList(ViewBag.Categories, "categoryid", "categoryname"), "-- Select Category --", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.categoryid, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <strong>Tên phòng:</strong>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.roomname, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.roomname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <strong>Mô tả phòng:</strong>
+        <div class="col-md-10">
+            <textarea class="form-control" name="roomdes" id="inputdes">@Model.roomdes</textarea>
+            @Html.ValidationMessageFor(model => model.roomdes, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <strong>Giá phòng:</strong>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <strong>Hình ảnh:</strong>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.image, new { htmlAttributes = new { @class = "form-control" } })
+            <a href="#" class="btn btn-success btn-sm" onclick="BrowseServer()">Chọn hình ảnh</a>
+            @Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <strong>Banner 1:</strong>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.image1, new { htmlAttributes = new { @class = "form-control" } })
+            <a href="#" class="btn btn-success btn-sm" onclick="BrowseServer1()">Chọn hình ảnh</a>
+            @Html.ValidationMessageFor(model => model.image1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <strong>Banner 2:</strong>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.image2, new { htmlAttributes = new { @class = "form-control" } })
+            <a href="#" class="btn btn-success btn-sm" onclick="BrowseServer2()">Chọn hình ảnh</a>
+            @Html.ValidationMessageFor(model => model.image2, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <strong>Banner 3:</strong>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.image3, new { htmlAttributes = new { @class = "form-control" } })
+            <a href="#" class="btn btn-success btn-sm" onclick="BrowseServer3()">Chọn hình ảnh</a>
+            @Html.ValidationMessageFor(model => model.image3, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <strong>Banner 4:</strong>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.image4, new { htmlAttributes = new { @class = "form-control" } })
+            <a href="#" class="btn btn-success btn-sm" onclick="BrowseServer4()">Chọn hình ảnh</a>
+            @Html.ValidationMessageFor(model => model.image4, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <strong>Số người tối đa:</strong>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.maxpeople, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.maxpeople, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <strong>Số giường:</strong>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.bed, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.bed, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <strong>View:</strong>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.view, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.view, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Lưu" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Quay về", "Index")
+</div>
+@section ckfinder{
+    <script>
+        CKEDITOR.replace('inputdes')
+        //hình ảnh
+        function BrowseServer() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = SetFileField;
+            finder.popup();
+        }
+        function SetFileField(fileUrl) {
+            document.getElementById('image').value = fileUrl;
+        }
+        //banner 1
+        function BrowseServer1() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = SetFileField1;
+            finder.popup();
+        }
+        function SetFileField1(fileUrl) {
+            document.getElementById('image1').value = fileUrl;
+        }
+        //banner 2
+        function BrowseServer2() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = SetFileField2;
+            finder.popup();
+        }
+        function SetFileField2(fileUrl) {
+            document.getElementById('image2').value = fileUrl;
+        }
+        //banner 3
+        function BrowseServer3() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = SetFileField3;
+            finder.popup();
+        }
+        function SetFileField3(fileUrl) {
+            document.getElementById('image3').value = fileUrl;
+        }
+        //banner 4
+        function BrowseServer4() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = SetFileField4;
+            finder.popup();
+        }
+        function SetFileField4(fileUrl) {
+            document.getElementById('image4').value = fileUrl;
+        }
+    </script>
+}

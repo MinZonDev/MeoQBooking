@@ -11,6 +11,7 @@ using WebBooking.Models.ViewModel;
 using System.Web.Razor.Parser.SyntaxTree;
 using System.Net.Mail;
 using System.Net;
+using Microsoft.AspNet.Identity;
 
 namespace WebBooking.Controllers
 {
@@ -61,8 +62,6 @@ namespace WebBooking.Controllers
 
         public ActionResult DatPhong([Bind(Include = "roomid, customername, email, phone, identiyid, birthday, bookingdate, numberpeople, checkin, checkout, total, statusid")] Booking booking)
         {
-            
-
             if (ModelState.IsValid)
             {
                 var room = db.Rooms.Find(booking.roomid);
@@ -70,11 +69,10 @@ namespace WebBooking.Controllers
                 {
                     return HttpNotFound();
                 }
-
                 booking.Room = room;
                 booking.statusid = 1;
                 booking.bookingdate = DateTime.UtcNow;
-
+                booking.userid = User.Identity.GetUserId();
                 if (booking.checkin.HasValue && booking.checkout.HasValue)
                 {
                     TimeSpan timeSpan = booking.checkout.Value - booking.checkin.Value;
@@ -89,8 +87,53 @@ namespace WebBooking.Controllers
 
                 return RedirectToAction("ChiTietDatPhong", "DatPhong", new { id = booking.bookingid });
             }
+            else
+            {
+                // Nếu ModelState không hợp lệ, thực hiện các xử lý tương ứng với từng lỗi
 
-            return View(booking);
+                // Ví dụ: Kiểm tra lỗi nhập sai thông tin khách hàng
+                if (ModelState["customername"].Errors.Count > 0)
+                {
+                    ViewBag.ErrorMessage = "Vui lòng nhập tên khách hàng.";
+                }
+                else if (ModelState["email"].Errors.Count > 0)
+                {
+                    ViewBag.ErrorMessage = "Vui lòng nhập địa chỉ email hợp lệ.";
+                }
+                else if (ModelState["phone"].Errors.Count > 0)
+                {
+                    ViewBag.ErrorMessage = "Vui lòng nhập số điện thoại hợp lệ.";
+                }
+                else if (ModelState["checkin"].Errors.Count > 0)
+                {
+                    ViewBag.ErrorMessage = "Vui lòng nhập ngày nhận phòng hợp lệ.";
+                }
+                else if (ModelState["identiyid"].Errors.Count > 0)
+                {
+                    ViewBag.ErrorMessage = "Vui lòng nhập CMND/CCCD hợp lệ.";
+                }
+                else if (ModelState["checkout"].Errors.Count > 0)
+                {
+                    ViewBag.ErrorMessage = "Vui lòng nhập ngày trả phòng hợp lệ.";
+                }
+                else if (ModelState["birthday"].Errors.Count > 0)
+                {
+                    ViewBag.ErrorMessage = "Vui lòng nhập ngày sinh hợp lệ.";
+                }
+                else if (ModelState["numberpeople"].Errors.Count > 0)
+                {
+                    ViewBag.ErrorMessage = "Vui lòng nhập số người hợp lệ.";
+                }
+                // Xử lý các lỗi khác tương tự
+
+                // Gán lại các giá trị để hiển thị lại trong view
+                var room = db.Rooms.Find(booking.roomid);
+                ViewBag.ThongTinPhong = room;
+                List<int> soNguoiList = new List<int> { 1, 2, 3, 4, 5 };
+                ViewBag.SoNguoiList = new SelectList(soNguoiList);
+                return View(booking);
+            }
+
         }
 
 
@@ -224,7 +267,7 @@ namespace WebBooking.Controllers
                                   <td align=""left"" style=""padding:0;Margin:0;width:270px"">
                                    <table width=""100%"" cellspacing=""0"" cellpadding=""0"" role=""presentation"" style=""mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"">
                                      <tr style=""border-collapse:collapse"">
-                                      <td class=""es-infoblock es-m-txt-c"" align=""left"" style=""padding:0;Margin:0;line-height:14px;font-size:12px;color:#CCCCCC""><p style=""Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:14px;color:#CCCCCC;font-size:12px"">Put your preheader text here</p></td>
+                                      <td class=""es-infoblock es-m-txt-c"" align=""left"" style=""padding:0;Margin:0;line-height:14px;font-size:12px;color:#CCCCCC""><p style=""Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:14px;color:#CCCCCC;font-size:12px"">Wellcome to MEOQ HOTEL</p></td>
                                      </tr>
                                    </table></td>
                                  </tr>
@@ -555,7 +598,38 @@ namespace WebBooking.Controllers
 
             return View(booking);
         }
-        
+        //public ActionResult HuyDatPhong(int id)
+        //{
+        //    // Tìm đơn đặt phòng dựa trên ID
+        //    var booking = db.Bookings.Find(id);
+
+        //    if (booking == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+
+        //    // Kiểm tra trạng thái hiện tại của đơn đặt phòng
+        //    if (booking.statusid != 1) // Kiểm tra trạng thái đã được xác nhận
+        //    {
+        //        ViewBag.ErrorMessage = "Không thể hủy đặt phòng. Đơn đặt phòng không ở trạng thái chờ xác nhận.";
+        //        return View("Error"); // Hiển thị trang lỗi hoặc chuyển hướng đến trang khác tùy theo yêu cầu của bạn
+        //    }
+
+        //    // Cập nhật trạng thái thành 5 (hủy đặt phòng)
+        //    booking.statusid = 5;
+
+        //    // Lưu thay đổi vào cơ sở dữ liệu
+        //    db.SaveChanges();
+
+        //    // Chuyển hướng đến trang thông báo hủy đặt phòng thành công
+        //    return RedirectToAction("HuyDatPhongSuccess");
+        //}
+        //public ActionResult HuyDatPhongSuccess()
+        //{
+        //    return View();
+        //}
+
+
     }
 
 }

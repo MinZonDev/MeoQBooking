@@ -1,0 +1,131 @@
+﻿@model WebBooking.Models.DB.Booking
+
+@{
+    ViewBag.Title = "Chi tiết đặt phòng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebBooking.Models.DB.Room room = ViewBag.ThongTinPhong;
+}
+
+<div id="gdlr-header-substitute">
+</div>
+<div class="gdlr-page-title-wrapper">
+    <div class="gdlr-page-title-overlay"></div>
+    <div class="gdlr-page-title-container container">
+        <h1 class="gdlr-page-title">Chi tiết đặt phòng</h1>
+    </div>
+</div>
+<!-- is search -->
+<div class="content-wrapper">
+    <div class="gdlr-content">
+        <div class="with-sidebar-wrapper">
+            <div class="with-sidebar-container container gdlr-class-no-sidebar">
+                <div class="with-sidebar-left twelve columns">
+                    <div class="with-sidebar-content twelve columns">
+                        <div class="gdlr-item gdlr-item-start-content" id="gdlr-single-booking-content" data-ajax="https://demo.goodlayers.com/hotelmaster/wp-admin/admin-ajax.php">
+                            <form style="width:600px" class="gdlr-reservation-bar" data-action="gdlr_hotel_booking">
+                                <div style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-bar-title">Thông Tin Đặt Phòng</div>
+                                <div class="gdlr-reservation-bar-summary-form"></div>
+                                <div class="gdlr-reservation-bar-room-form"></div>
+                                <div class="gdlr-reservation-bar-date-form">
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px " class="gdlr-reservation-field-title"><img src="@Model.Room.image" /></span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Tên Phòng: @Model.Room.roomname</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Loại Phòng: @Model.Room.Category.categoryname</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Số Giường: @Model.Room.bed</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                        <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Giá Phòng: @String.Format("{0:0,0}", Model.Room.price) / Đêm</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                    </div><div class="clear"></div>
+                                    <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="gdlr-reservation-bar-service-form" id="gdlr-reservation-bar-service-form"></div>
+                            </form>
+                            <div style="" class="gdlr-booking-content">
+                                <div class="gdlr-booking-process-bar" id="gdlr-booking-process-bar" data-state="1">
+                                    <form style="width:600px" class="gdlr-reservation-bar" data-action="gdlr_hotel_booking">
+                                        <div style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-bar-title">Thông Tin Khách Hàng</div>
+                                        <div class="gdlr-reservation-bar-summary-form"></div>
+                                        <div class="gdlr-reservation-bar-room-form"></div>
+                                        <div class="gdlr-reservation-bar-date-form">
+                                            <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                                <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Tên Khách Hàng: @Model.customername</span>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                                <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Số Điện Thoại: @Model.phone</span>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                                <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Email: @Model.email</span>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                                <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Ngày Đặt Phòng: @Model.bookingdate</span>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                                <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Ngày Nhận Phòng: @Model.checkin</span>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                                <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Ngày Trả Phòng: @Model.checkout</span>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                                <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-field-title">Tổng Tiền: @String.Format("{0:0,0}", Model.total)/VNĐ</span>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                                <span style="font-size: 20px; color: #cab193; font-family: 'Merriweather'Leelawadee; margin-left:220px" class="gdlr-reservation-field-title">Thanh Toán</span>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
+                                                <img style="width:250px" src="~/Content/assets/images/thanhtoan/momo.jpg" />
+                                                <img style="width: 250px; margin-left: 50px;" src="~/Content/assets/images/thanhtoan/nganhang.jpg" />
+                                            </div>
+
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="gdlr-reservation-bar-service-form" id="gdlr-reservation-bar-service-form"></div>
+                                    </form>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!-- gdlr-content -->
+    <div class="clear"></div>
+</div>
+<!-- content wrapper -->
