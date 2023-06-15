@@ -45,7 +45,10 @@ namespace WebBooking.Areas.Admin.Controllers
                 bookings = (IOrderedQueryable<Booking>)bookings.Where(b =>
                     b.email.Contains(searchTerm) ||
                     b.bookingid.ToString().Contains(searchTerm) ||
-                    b.phone.Contains(searchTerm));
+                    b.customername.Contains(searchTerm)||
+                    b.phone.Contains(searchTerm)||
+                     b.identiyid.Contains(searchTerm)
+                    );
             }
             ViewBag.StatusList = statusList;
             ViewBag.Status = new SelectList(statuses, "statusid", "statusname");

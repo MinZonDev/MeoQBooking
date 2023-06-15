@@ -84,11 +84,11 @@ namespace WebBooking.Areas.Admin.Controllers
         public ActionResult AddRoleToUser()
         {
             // Lấy danh sách tài khoản người dùng
-            var users = dbContext.Users.ToList();
+            var users = db.AspNetUsers.ToList();
             ViewBag.Users = users;
 
             // Lấy danh sách quyền
-            var roles = dbContext.Roles.ToList();
+            var roles = db.AspNetRoles.ToList();
             ViewBag.Roles = roles;
 
             return View();
@@ -97,8 +97,8 @@ namespace WebBooking.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult AddRoleToUser(string userId, string roleName)
         {
-            var user = dbContext.Users.Find(userId);
-            var role = dbContext.Roles.FirstOrDefault(r => r.Name == roleName);
+            var user = db.AspNetUsers.Find(userId);
+            var role = db.AspNetRoles.FirstOrDefault(r => r.Name == roleName);
 
             if (user != null && role != null)
             {

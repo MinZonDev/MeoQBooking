@@ -643,3 +643,7 @@ D:\UPLOAD_GIT\MeoQBooking\WebBooking\WebBooking\bin\CloudinaryDotNet.dll
 D:\UPLOAD_GIT\MeoQBooking\WebBooking\WebBooking\bin\System.Text.Encodings.Web.dll
 D:\UPLOAD_GIT\MeoQBooking\WebBooking\WebBooking\bin\CloudinaryDotNet.xml
 D:\UPLOAD_GIT\MeoQBooking\WebBooking\WebBooking\bin\System.Text.Encodings.Web.xml
+D:\UPLOAD_GIT\MeoQBooking\WebBooking\WebBooking\obj\Debug\WebBooking.Migrations.hotelllsl2.resources
+D:\UPLOAD_GIT\MeoQBooking\WebBooking\WebBooking\obj\Debug\WebBooking.Migrations.hotelllslsll.resources
+D:\UPLOAD_GIT\MeoQBooking\WebBooking\WebBooking\obj\Debug\WebBooking.Migrations.hotelllslsls.resources
+D:\UPLOAD_GIT\MeoQBooking\WebBooking\WebBooking\obj\Debug\WebBooking.Migrations.hotelsssssl22.resources

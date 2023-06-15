@@ -36,10 +36,15 @@ namespace WebBooking.Areas.Admin.Controllers
             // Tổng số lượng đơn đặt phòng trong hôm nay
             int totalBookingToday = db.Bookings.Count(b => b.bookingdate.HasValue && b.bookingdate.Value.Day == currentDay && b.bookingdate.Value.Month == currentMonth && b.bookingdate.Value.Year == currentYear);
 
-            // Tổng doanh thu trong hôm nay
-            decimal totalRevenueToday = db.Bookings
+            //// Tổng doanh thu trong hôm nay
+            //decimal totalRevenueToday = db.Bookings
+            //.Where(b => b.statusid == 4 && b.checkout.HasValue && b.checkout.Value.Day == currentDay && b.checkout.Value.Month == currentMonth && b.checkout.Value.Year == currentYear)
+            //.Sum(b => b.total ?? 0);
+            decimal? totalRevenueToday = db.Bookings
             .Where(b => b.statusid == 4 && b.checkout.HasValue && b.checkout.Value.Day == currentDay && b.checkout.Value.Month == currentMonth && b.checkout.Value.Year == currentYear)
-            .Sum(b => b.total ?? 0);
+            .Sum(b => b.total) ?? 0m;
+
+
 
             // Tổng số lượng đơn đặt phòng trong tháng hiện tại
             int totalBookingThisMonth = db.Bookings.Count(b => b.bookingdate.HasValue && b.bookingdate.Value.Month == currentMonth && b.bookingdate.Value.Year == currentYear);

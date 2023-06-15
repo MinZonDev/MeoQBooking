@@ -52,15 +52,17 @@
 
         [Column(TypeName = "money")]
         public decimal? total { get; set; }
-
+        //public DateTime paymentdate { get; set; }
         public int? statusid { get; set; }
-
+        public int? statuscreditid { get; set; }
+        //public int TypePaymentVN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bill> Bills { get; set; }
 
         public virtual Room Room { get; set; }
 
         public virtual Status Status { get; set; }
+        public virtual StatusCredit StatusCredit { get; set; }
     }
     public class GreaterThanCurrentDateAttribute : ValidationAttribute
     {
