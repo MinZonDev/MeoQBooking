@@ -164,7 +164,7 @@
     <span aria-current='page' class='page-numbers current'>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount</span>
     <div style="text-align: right; margin-left: 695px; color: aliceblue; border-color: #b89f80 " class="pagination-container">
 
-        @Html.PagedListPager(Model, page => Url.Action("TinTuc", new { page }), new PagedListRenderOptions { Display = PagedListDisplayMode.IfNeeded })
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions { Display = PagedListDisplayMode.IfNeeded })
     </div>
 
 </div>

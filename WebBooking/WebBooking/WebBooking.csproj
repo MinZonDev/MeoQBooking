@@ -232,57 +232,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305161647221_Hotels.cs" />
-    <Compile Include="Migrations\202305161647221_Hotels.designer.cs">
-      <DependentUpon>202305161647221_Hotels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305221624149_hotellsssssss.cs" />
-    <Compile Include="Migrations\202305221624149_hotellsssssss.designer.cs">
-      <DependentUpon>202305221624149_hotellsssssss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305240906562_hotellls1.cs" />
-    <Compile Include="Migrations\202305240906562_hotellls1.designer.cs">
-      <DependentUpon>202305240906562_hotellls1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305241005053_hotelsss.cs" />
-    <Compile Include="Migrations\202305241005053_hotelsss.designer.cs">
-      <DependentUpon>202305241005053_hotelsss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305251541085_hotelsss34.cs" />
-    <Compile Include="Migrations\202305251541085_hotelsss34.designer.cs">
-      <DependentUpon>202305251541085_hotelsss34.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305261335595_hotellllllssss.cs" />
-    <Compile Include="Migrations\202305261335595_hotellllllssss.designer.cs">
-      <DependentUpon>202305261335595_hotellllllssss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305281416371_hotels9.cs" />
-    <Compile Include="Migrations\202305281416371_hotels9.designer.cs">
-      <DependentUpon>202305281416371_hotels9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305311011006_hotelllsls.cs" />
-    <Compile Include="Migrations\202305311011006_hotelllsls.designer.cs">
-      <DependentUpon>202305311011006_hotelllsls.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305311017462_hotellllslsss.cs" />
-    <Compile Include="Migrations\202305311017462_hotellllslsss.designer.cs">
-      <DependentUpon>202305311017462_hotellllslsss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306031508588_hotelllsl2.cs" />
-    <Compile Include="Migrations\202306031508588_hotelllsl2.designer.cs">
-      <DependentUpon>202306031508588_hotelllsl2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306031524402_hotelllslsll.cs" />
-    <Compile Include="Migrations\202306031524402_hotelllslsll.designer.cs">
-      <DependentUpon>202306031524402_hotelllslsll.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306031539242_hotelllslsls.cs" />
-    <Compile Include="Migrations\202306031539242_hotelllslsls.designer.cs">
-      <DependentUpon>202306031539242_hotelllslsls.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306031641354_hotelsssssl22.cs" />
-    <Compile Include="Migrations\202306031641354_hotelsssssl22.designer.cs">
-      <DependentUpon>202306031641354_hotelsssssl22.cs</DependentUpon>
+    <Compile Include="Migrations\202306191608537_dbhotel.cs" />
+    <Compile Include="Migrations\202306191608537_dbhotel.designer.cs">
+      <DependentUpon>202306191608537_dbhotel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3169,51 +3121,15 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202305161647221_Hotels.resx">
-      <DependentUpon>202305161647221_Hotels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305221624149_hotellsssssss.resx">
-      <DependentUpon>202305221624149_hotellsssssss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305240906562_hotellls1.resx">
-      <DependentUpon>202305240906562_hotellls1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305241005053_hotelsss.resx">
-      <DependentUpon>202305241005053_hotelsss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305251541085_hotelsss34.resx">
-      <DependentUpon>202305251541085_hotelsss34.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305261335595_hotellllllssss.resx">
-      <DependentUpon>202305261335595_hotellllllssss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305281416371_hotels9.resx">
-      <DependentUpon>202305281416371_hotels9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305311011006_hotelllsls.resx">
-      <DependentUpon>202305311011006_hotelllsls.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305311017462_hotellllslsss.resx">
-      <DependentUpon>202305311017462_hotellllslsss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306031508588_hotelllsl2.resx">
-      <DependentUpon>202306031508588_hotelllsl2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306031524402_hotelllslsll.resx">
-      <DependentUpon>202306031524402_hotelllslsll.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306031539242_hotelllslsls.resx">
-      <DependentUpon>202306031539242_hotelllslsls.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306031641354_hotelsssssl22.resx">
-      <DependentUpon>202306031641354_hotelsssssl22.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Areas\Admin\Adminassets\vendors\popper.js\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202306191608537_dbhotel.resx">
+      <DependentUpon>202306191608537_dbhotel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

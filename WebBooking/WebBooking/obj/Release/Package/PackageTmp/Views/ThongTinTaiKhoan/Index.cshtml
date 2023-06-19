@@ -27,7 +27,7 @@
                     <div class="with-sidebar-content twelve columns">
                         <div class="gdlr-item gdlr-item-start-content" id="gdlr-single-booking-content" data-ajax="https://demo.goodlayers.com/hotelmaster/wp-admin/admin-ajax.php">
                             <form style="width:600px; margin-left:30%" class="gdlr-reservation-bar" data-action="gdlr_hotel_booking">
-                                <div style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-bar-title">Thông Tin Đặt Phòng</div>
+                                <div style="font-size: 20px; color: #cab193; font-family: 'Merriweather'" class="gdlr-reservation-bar-title">Thông Tin Tài Khoản</div>
                                 <div class="gdlr-reservation-bar-summary-form"></div>
                                 <div class="gdlr-reservation-bar-room-form"></div>
                                 <div class="gdlr-reservation-bar-date-form">
@@ -61,6 +61,7 @@
                                     <div class="clear"></div>
                                     <div class="gdlr-reservation-field gdlr-resv-combobox gdlr-reservation-bar-room-number">
                                     </div>
+                                    <a class="btn btn-danger" href="@Url.Action("LichSuDatPhong")">Lịch sử đặt phòng</a>
                                     @Html.ActionLink("Chỉnh sửa", "Edit", "ThongTinTaiKhoan", new { userId = Model.Id }, null)
                                 </div>
                                 <div class="gdlr-reservation-bar-service-form" id="gdlr-reservation-bar-service-form"></div>
